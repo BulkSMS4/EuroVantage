@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us — EuroVantage</title>
+<style>
+:root {
+  --gold: #d4af37;
+  --dark: #050505;
+  --text-light: #f2f2f2;
+}
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: var(--dark);
+  color: var(--text-light);
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background: rgba(0,0,0,0.9);
+  border-bottom: 1px solid rgba(212,175,55,0.2);
+}
+header h1 {
+  color: var(--gold);
+  font-family: "Times New Roman", serif;
+  font-weight: 700;
+  font-size: 28px;
+}
+nav a {
+  color: var(--text-light);
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: 500;
+}
+nav a:hover { color: var(--gold); }
+
+main {
+  max-width: 900px;
+  margin: 60px auto;
+  background: #0b0b0b;
+  border: 1px solid rgba(212,175,55,0.3);
+  border-radius: 15px;
+  padding: 35px 40px;
+  box-shadow: 0 0 20px rgba(212,175,55,0.15);
+}
+h2 {
+  color: var(--gold);
+  text-align: center;
+  margin-bottom: 25px;
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+  align-items: start;
+}
+.contact-info {
+  color: #ccc;
+  font-size: 15px;
+  line-height: 1.7;
+}
+.contact-info h3 {
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.contact-info a {
+  color: var(--gold);
+  text-decoration: none;
+}
+.contact-info a:hover { text-decoration: underline; }
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gold);
+}
+input, textarea {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #1a1a1a;
+  color: var(--text-light);
+  font-size: 14px;
+}
+input:focus, textarea:focus {
+  outline: 1px solid var(--gold);
+}
+button {
+  background: var(--gold);
+  color: #000;
+  font-weight: 700;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+  padding: 14px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+button:hover {
+  background: #f1d675;
+}
+.success {
+  display: none;
+  text-align: center;
+  background: rgba(212,175,55,0.15);
+  border: 1px solid rgba(212,175,55,0.4);
+  color: var(--gold);
+  padding: 12px;
+  border-radius: 10px;
+  margin-top: 15px;
+}
+footer {
+  text-align: center;
+  padding: 25px;
+  border-top: 1px solid rgba(212,175,55,0.2);
+  font-size: 14px;
+  color: #aaa;
+  margin-top: 40px;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>✨ EuroVantage</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="jobs.html">Jobs</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <h2>Contact EuroVantage</h2>
+
+  <div class="contact-grid">
+    <div class="contact-info">
+      <h3>📍 Office Location</h3>
+      <p>Accra, Ghana</p>
+
+      <h3>📞 Call / WhatsApp</h3>
+      <p><a href="https://wa.me/233539121847">+233 539 121 847</a></p>
+
+      <h3>✉️ Email</h3>
+      <p><a href="mailto:info@eurovantage.com">info@eurovantage.com</a></p>
+
+      <h3>🕐 Office Hours</h3>
+      <p>Monday – Saturday: 9:00 AM – 5:00 PM</p>
+    </div>
+
+    <form id="contactForm">
+      <label>Full Name</label>
+      <input type="text" name="name" required>
+
+      <label>Email Address</label>
+      <input type="email" name="email" required>
+
+      <label>Message</label>
+      <textarea name="message" rows="5" placeholder="Write your message here..." required></textarea>
+
+      <button type="submit">Send Message</button>
+      <div class="success" id="successMsg">✅ Message sent successfully! We’ll get back to you shortly.</div>
+    </form>
+  </div>
+</main>
+
+<footer>
+  © <script>document.write(new Date().getFullYear())</script> EuroVantage — Accra, Ghana. All rights reserved.
+</footer>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", e => {
+  e.preventDefault();
+  document.getElementById("successMsg").style.display = "block";
+  e.target.reset();
+});
+</script>
+
+</body>
+</html>
