@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EuroVantage — Advance with Confidence. Arrive in Style.</title>
+<style>
+:root {
+  --gold: #d4af37;
+  --dark: #050505;
+  --text-light: #f2f2f2;
+}
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: var(--dark);
+  color: var(--text-light);
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background: rgba(0,0,0,0.9);
+  border-bottom: 1px solid rgba(212,175,55,0.2);
+}
+header h1 {
+  color: var(--gold);
+  font-family: "Times New Roman", serif;
+  font-weight: 700;
+  font-size: 28px;
+}
+nav a {
+  color: var(--text-light);
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: 500;
+}
+nav a:hover { color: var(--gold); }
+
+/* Hero */
+.hero {
+  background: url("hero.jpg") center/cover no-repeat;
+  color: var(--text-light);
+  text-align: center;
+  padding: 150px 20px;
+  position: relative;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+.hero h2 {
+  font-size: 48px;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.hero p { font-size: 18px; }
+.hero button {
+  background: var(--gold);
+  border: none;
+  color: #000;
+  padding: 14px 32px;
+  margin-top: 25px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.hero button:hover {
+  background: #c7a130;
+}
+
+/* Job Section */
+.jobs {
+  text-align: center;
+  padding: 60px 20px;
+}
+.jobs h3 { color: var(--gold); font-size: 28px; margin-bottom: 25px; }
+.job-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.job-card {
+  background: #0a0a0a;
+  padding: 20px;
+  border: 1px solid rgba(212,175,55,0.2);
+  border-radius: 10px;
+}
+.job-card:hover {
+  transform: scale(1.03);
+  transition: 0.3s;
+  border-color: var(--gold);
+}
+
+/* Testimonials */
+.testimonials {
+  background: #0b0b0b;
+  padding: 80px 20px;
+  text-align: center;
+}
+.testimonials h3 {
+  color: var(--gold);
+  font-size: 30px;
+  margin-bottom: 40px;
+}
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  max-width: 1100px;
+  margin: auto;
+}
+.testimonial {
+  background: #101010;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(212,175,55,0.1);
+}
+.testimonial img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  margin-bottom: 10px;
+}
+.testimonial p {
+  font-size: 15px;
+  line-height: 1.5;
+}
+.testimonial h4 {
+  margin-top: 10px;
+  color: var(--gold);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 25px;
+  border-top: 1px solid rgba(212,175,55,0.2);
+  font-size: 14px;
+  color: #aaa;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>✨ EuroVantage</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="jobs.html">Jobs</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h2>Advance with Confidence.<br>Arrive in Style.</h2>
+    <p>Your luxury pathway to verified European work and travel opportunities.</p>
+    <button>Apply for Your Job</button>
+  </div>
+</section>
+
+<section class="jobs">
+  <h3>Popular Job Categories</h3>
+  <div class="job-grid">
+    <div class="job-card">🍴 Caterers</div>
+    <div class="job-card">🍹 Bar Staff</div>
+    <div class="job-card">🏭 Factory Workers</div>
+    <div class="job-card">🌾 Farmers</div>
+    <div class="job-card">🚧 Plumbers</div>
+    <div class="job-card">🏗️ Constructors</div>
+    <div class="job-card">🚗 Drivers</div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <h3>What Our Clients Say</h3>
+  <div class="testimonial-grid">
+    <div class="testimonial">
+      <img src="person1.jpg" alt="Client">
+      <p>“EuroVantage made my job move to Europe so smooth and professional. Highly recommend!”</p>
+      <h4>Samuel 🇬🇭</h4>
+    </div>
+    <div class="testimonial">
+      <img src="person2.jpg" alt="Client">
+      <p>“Within 3 weeks I got my verified job offer and full visa support. Thank you EuroVantage!”</p>
+      <h4>Elena 🇪🇸</h4>
+    </div>
+    <div class="testimonial">
+      <img src="person3.jpg" alt="Client">
+      <p>“From interviews to travel, they guided me step-by-step. I’m now working in Europe!”</p>
+      <h4>Kwesi 🇬🇭</h4>
+    </div>
+    <div class="testimonial">
+      <img src="person4.jpg" alt="Client">
+      <p>“Honest agency — they delivered exactly what they promised.”</p>
+      <h4>Linda 🇳🇬</h4>
+    </div>
+    <div class="testimonial">
+      <img src="person5.jpg" alt="Client">
+      <p>“Fast process, clear communication, and genuine results.”</p>
+      <h4>Marco 🇮🇹</h4>
+    </div>
+    <div class="testimonial">
+      <img src="person6.jpg" alt="Client">
+      <p>“I never thought getting a European job could be this easy.”</p>
+      <h4>Grace 🇰🇪</h4>
+    </div>
+    <div class="testimonial">
+      <img src="person7.jpg" alt="Client">
+      <p>“Everything was handled professionally from start to finish.”</p>
+      <h4>Peter 🇫🇷</h4>
+    </div>
+    <div class="testimonial">
+      <img src="person8.jpg" alt="Client">
+      <p>“Trustworthy, reliable, and efficient — EuroVantage changed my life.”</p>
+      <h4>Amara 🇳🇬</h4>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © <script>document.write(new Date().getFullYear())</script> EuroVantage — Accra, Ghana. All rights reserved.
+</footer>
+
+</body>
+</html>
