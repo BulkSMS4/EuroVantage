@@ -58,18 +58,27 @@ h2 {
   background: #0b0b0b;
   border: 1px solid rgba(212,175,55,0.3);
   border-radius: 12px;
-  padding: 25px;
+  padding: 20px;
   box-shadow: 0 0 10px rgba(212,175,55,0.1);
   cursor: pointer;
   transition: all 0.3s ease;
+  text-align: center;
 }
 .job-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 0 25px rgba(212,175,55,0.2);
 }
+.job-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
 .job-card h3 {
   color: var(--gold);
-  margin-bottom: 10px;
+  margin-bottom: 8px;
+  font-size: 18px;
 }
 .job-card p {
   color: #ccc;
@@ -109,6 +118,13 @@ h2 {
 }
 .modal-content p {
   color: #ccc;
+  margin-bottom: 15px;
+}
+.modal-content img {
+  width: 100%;
+  border-radius: 10px;
+  height: 200px;
+  object-fit: cover;
   margin-bottom: 15px;
 }
 .modal-content .apply-btn {
@@ -159,26 +175,74 @@ footer {
   <h2>Popular Job Categories in Europe 🇪🇺</h2>
 
   <div class="jobs-grid">
-    <div class="job-card" data-job="Caterers" data-location="Multiple countries" data-desc="Prepare, cook, and serve meals in hotels, restaurants, or events. Free accommodation provided." data-salary="€1,200 – €1,800/month">
-      🍴 Caterers
+    <div class="job-card" 
+         data-job="Caterers" 
+         data-location="Multiple countries" 
+         data-desc="Prepare, cook, and serve meals in hotels, restaurants, or events. Free accommodation provided." 
+         data-salary="€1,200 – €1,800/month"
+         data-img="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=800&q=60">
+      <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=800&q=60" alt="Caterers">
+      <h3>🍴 Caterers</h3>
     </div>
-    <div class="job-card" data-job="Bar Staff" data-location="Multiple countries" data-desc="Serve drinks, interact with customers, and maintain bar cleanliness. Free accommodation provided." data-salary="€1,100 – €1,500/month">
-      🍹 Bar Staff
+
+    <div class="job-card" 
+         data-job="Bar Staff" 
+         data-location="Multiple countries" 
+         data-desc="Serve drinks, interact with customers, and maintain bar cleanliness. Free accommodation provided." 
+         data-salary="€1,100 – €1,500/month"
+         data-img="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=60">
+      <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=60" alt="Bar Staff">
+      <h3>🍹 Bar Staff</h3>
     </div>
-    <div class="job-card" data-job="Factory Workers" data-location="Poland, Germany" data-desc="Work in production lines, assembling products or managing machinery. Free accommodation provided." data-salary="€1,000 – €1,400/month">
-      🏭 Factory Workers
+
+    <div class="job-card" 
+         data-job="Factory Workers" 
+         data-location="Poland, Germany" 
+         data-desc="Work in production lines, assembling products or managing machinery. Free accommodation provided." 
+         data-salary="€1,000 – €1,400/month"
+         data-img="https://images.unsplash.com/photo-1581091870622-3dca5b1a1e77?auto=format&fit=crop&w=800&q=60">
+      <img src="https://images.unsplash.com/photo-1581091870622-3dca5b1a1e77?auto=format&fit=crop&w=800&q=60" alt="Factory Workers">
+      <h3>🏭 Factory Workers</h3>
     </div>
-    <div class="job-card" data-job="Farmers" data-location="Netherlands, Germany" data-desc="Assist in planting, harvesting, and maintaining crops or livestock. Free accommodation provided." data-salary="€1,000 – €1,300/month">
-      🌾 Farmers
+
+    <div class="job-card" 
+         data-job="Farmers" 
+         data-location="Netherlands, Germany" 
+         data-desc="Assist in planting, harvesting, and maintaining crops or livestock. Free accommodation provided." 
+         data-salary="€1,000 – €1,300/month"
+         data-img="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=800&q=60">
+      <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=800&q=60" alt="Farmers">
+      <h3>🌾 Farmers</h3>
     </div>
-    <div class="job-card" data-job="Plumbers" data-location="Germany, Austria" data-desc="Install, repair, and maintain piping systems in residential or commercial properties. Free accommodation provided." data-salary="€1,400 – €2,000/month">
-      🚧 Plumbers
+
+    <div class="job-card" 
+         data-job="Plumbers" 
+         data-location="Germany, Austria" 
+         data-desc="Install, repair, and maintain piping systems in residential or commercial properties. Free accommodation provided." 
+         data-salary="€1,400 – €2,000/month"
+         data-img="https://images.unsplash.com/photo-1601933471742-2772f6e1f1d0?auto=format&fit=crop&w=800&q=60">
+      <img src="https://images.unsplash.com/photo-1601933471742-2772f6e1f1d0?auto=format&fit=crop&w=800&q=60" alt="Plumbers">
+      <h3>🚧 Plumbers</h3>
     </div>
-    <div class="job-card" data-job="Constructors" data-location="Netherlands, Belgium" data-desc="Work on construction sites, operate machinery, or manage building projects. Free accommodation provided." data-salary="€1,500 – €2,200/month">
-      🏗️ Constructors
+
+    <div class="job-card" 
+         data-job="Constructors" 
+         data-location="Netherlands, Belgium" 
+         data-desc="Work on construction sites, operate machinery, or manage building projects. Free accommodation provided." 
+         data-salary="€1,500 – €2,200/month"
+         data-img="https://images.unsplash.com/photo-1600607687920-4e2a1d29e6b7?auto=format&fit=crop&w=800&q=60">
+      <img src="https://images.unsplash.com/photo-1600607687920-4e2a1d29e6b7?auto=format&fit=crop&w=800&q=60" alt="Constructors">
+      <h3>🏗️ Constructors</h3>
     </div>
-    <div class="job-card" data-job="Drivers" data-location="Germany, France" data-desc="Drive vehicles for delivery, transport, or logistics. Free accommodation provided." data-salary="€1,200 – €1,800/month">
-      🚗 Drivers
+
+    <div class="job-card" 
+         data-job="Drivers" 
+         data-location="Germany, France" 
+         data-desc="Drive vehicles for delivery, transport, or logistics. Free accommodation provided." 
+         data-salary="€1,200 – €1,800/month"
+         data-img="https://images.unsplash.com/photo-1542281286-9e0a16bb7366?auto=format&fit=crop&w=800&q=60">
+      <img src="https://images.unsplash.com/photo-1542281286-9e0a16bb7366?auto=format&fit=crop&w=800&q=60" alt="Drivers">
+      <h3>🚗 Drivers</h3>
     </div>
   </div>
 </main>
@@ -187,6 +251,7 @@ footer {
 <div class="modal" id="jobModal">
   <div class="modal-content">
     <span class="modal-close" id="modalClose">&times;</span>
+    <img id="modalImg" src="" alt="Job Image">
     <h3 id="modalJobTitle"></h3>
     <p id="modalLocation"></p>
     <p id="modalDescription"></p>
@@ -203,6 +268,7 @@ footer {
 // Modal functionality
 const modal = document.getElementById('jobModal');
 const modalClose = document.getElementById('modalClose');
+const modalImg = document.getElementById('modalImg');
 const modalJobTitle = document.getElementById('modalJobTitle');
 const modalLocation = document.getElementById('modalLocation');
 const modalDescription = document.getElementById('modalDescription');
@@ -211,15 +277,12 @@ const modalApplyBtn = document.getElementById('modalApplyBtn');
 
 document.querySelectorAll('.job-card').forEach(card => {
   card.addEventListener('click', () => {
-    const job = card.getAttribute('data-job');
-    const location = card.getAttribute('data-location');
-    const desc = card.getAttribute('data-desc');
-    const salary = card.getAttribute('data-salary');
-    modalJobTitle.textContent = job;
-    modalLocation.textContent = "Location: " + location;
-    modalDescription.textContent = desc;
-    modalSalary.textContent = "Salary: " + salary;
-    modalApplyBtn.href = `apply.html?job=${job.toLowerCase().replace(/ /g,'-')}`;
+    modalImg.src = card.getAttribute('data-img');
+    modalJobTitle.textContent = card.getAttribute('data-job');
+    modalLocation.textContent = "Location: " + card.getAttribute('data-location');
+    modalDescription.textContent = card.getAttribute('data-desc');
+    modalSalary.textContent = "Salary: " + card.getAttribute('data-salary');
+    modalApplyBtn.href = `apply.html?job=${card.getAttribute('data-job').toLowerCase().replace(/ /g,'-')}`;
     modal.style.display = 'flex';
   });
 });
