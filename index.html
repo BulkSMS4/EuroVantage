@@ -23,30 +23,8 @@
 <meta property="twitter:description" content="Find verified European jobs with EuroVantage — trusted visa and work support agency.">
 <meta property="twitter:image" content="https://www.eurovantage.com/images/eurovantage-hero.jpg">
 
-<!-- ✅ Schema -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "EuroVantage",
-  "url": "https://www.eurovantage.com",
-  "logo": "https://www.eurovantage.com/favicon.png",
-  "contactPoint": [{
-    "@type": "ContactPoint",
-    "telephone": "+233593231752",
-    "contactType": "Customer Service",
-    "areaServed": "GH",
-    "availableLanguage": ["English"]
-  }],
-  "sameAs": [
-    "https://www.facebook.com/EuroVantage",
-    "https://www.instagram.com/EuroVantage",
-    "https://wa.me/233593231752"
-  ]
-}
-</script>
-
 <link rel="icon" href="favicon.png">
+
 <style>
 :root {
   --gold: #d4af37;
@@ -83,7 +61,7 @@ nav a:hover { color: var(--gold); }
 
 /* Hero */
 .hero {
-  background: url("https://pin.it/74jmWnRu2") center/cover no-repeat;
+  background: url("https://i.pinimg.com/736x/74/5b/90/745b90e058ea868b4ff2a87c7b76b11f.jpg") center/cover no-repeat;
   color: var(--text-light);
   text-align: center;
   padding: 150px 20px;
@@ -164,8 +142,10 @@ nav a:hover { color: var(--gold); }
 .jobs {
   text-align: center;
   padding: 60px 20px;
+  background: #f9f9f9;
+  color: #000;
 }
-.jobs h3 { color: var(--gold); font-size: 28px; margin-bottom: 25px; }
+.jobs h3 { color: #222; font-size: 28px; margin-bottom: 25px; }
 .job-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -174,15 +154,58 @@ nav a:hover { color: var(--gold); }
   margin: 0 auto;
 }
 .job-card {
-  background: #0a0a0a;
-  padding: 20px;
-  border: 1px solid rgba(212,175,55,0.2);
-  border-radius: 10px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 15px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .job-card:hover {
-  transform: scale(1.03);
-  transition: 0.3s;
-  border-color: var(--gold);
+  transform: translateY(-5px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+.job-img {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+/* Modal Popup */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+}
+.modal-content {
+  background: #fff;
+  color: #000;
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+}
+.modal-content img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+.close-btn {
+  position: absolute;
+  right: 15px; top: 10px;
+  font-size: 22px;
+  cursor: pointer;
 }
 
 /* Testimonials */
@@ -245,9 +268,7 @@ nav a:hover { color: var(--gold); }
   background-color: #1ebd5a;
   transform: scale(1.1);
 }
-.whatsapp-float i {
-  margin-top: 12px;
-}
+.whatsapp-float i { margin-top: 12px; }
 
 footer {
   text-align: center;
@@ -263,10 +284,10 @@ footer {
 <header>
   <h1>✨ EuroVantage</h1>
   <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="jobs.html">Jobs</a>
-    <a href="contact.html">Contact</a>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Jobs</a>
+    <a href="#">Contact</a>
   </nav>
 </header>
 
@@ -274,19 +295,18 @@ footer {
   <div class="hero-content">
     <h2>Advance with Confidence.<br>Arrive in Style.</h2>
     <p>Your luxury pathway to verified European work and travel opportunities.</p>
-    <button onclick="window.location.href='apply.html?job=warehouse-assistant'">Apply for Your Job</button>
+    <button>Apply for Your Job</button>
   </div>
 </section>
 
-<!-- ✅ Team Section -->
 <section class="team">
   <h3>People We’ve Helped Secure European Jobs</h3>
   <div class="team-grid">
-    <div class="team-member"><img src="https://i.pinimg.com/736x/a4/1d/f7/a41df7e7a22c6653bf3f75da1a0207e0.jpg" alt="Kwame working as hotel staff in Germany"><h4>Kwame - Hotel Staff</h4></div>
-    <div class="team-member"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSl3s9YIxhTwn821V8hT1X8nDDgwor3P_Pn2UUSCi2OCA&s=10" alt="Michael working as a caregiver in the UK"><h4>Michael - Caregiver</h4></div>
-    <div class="team-member"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTW81Fw3tsOFIIiXhBdcFv0vlNtCZaO7z-OznCy3CxmQ&s=10" alt="Lucas working as a construction worker in Italy"><h4>Lucas - Construction Worker</h4></div>
-    <div class="team-member"><img src="https://www.pasaco.pl/wp-content/uploads/2023/05/Oferta-outsourcingu-procesow-logistycznych_1-1-1280x1171.jpg" alt="Amira supervising a factory in Poland"><h4>Amira - Factory Supervisor</h4></div>
-    <div class="team-member"><img src="https://media.istockphoto.com/id/1394055827/photo/black-female-chef-preparing-food-in-a-kitchen-at-restaurant-and-looking-at-camera.jpg?s=612x612&w=0&k=20&c=OtTBSSB2uZXcceumUQaxG1NneYtUrteXISlvDuRO6Ec=" alt="David working as a chef assistant in France"><h4>Millicent - Chef Assistant</h4></div>
+    <div class="team-member"><img src="https://i.pinimg.com/736x/a4/1d/f7/a41df7e7a22c6653bf3f75da1a0207e0.jpg"><h4>Kwame - Hotel Staff</h4></div>
+    <div class="team-member"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSl3s9YIxhTwn821V8hT1X8nDDgwor3P_Pn2UUSCi2OCA&s=10"><h4>Michael - Caregiver</h4></div>
+    <div class="team-member"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTW81Fw3tsOFIIiXhBdcFv0vlNtCZaO7z-OznCy3CxmQ&s=10"><h4>Lucas - Construction Worker</h4></div>
+    <div class="team-member"><img src="https://www.pasaco.pl/wp-content/uploads/2023/05/Oferta-outsourcingu-procesow-logistycznych_1-1-1280x1171.jpg"><h4>Amira - Factory Supervisor</h4></div>
+    <div class="team-member"><img src="https://media.istockphoto.com/id/1394055827/photo/black-female-chef-preparing-food-in-a-kitchen-at-restaurant-and-looking-at-camera.jpg?s=612x612"><h4>Millicent - Chef Assistant</h4></div>
   </div>
 </section>
 
@@ -294,113 +314,71 @@ footer {
 <section class="jobs">
   <h3>Popular Job Categories</h3>
   <div class="job-grid">
-
-    <div class="job-card">
-      <img src="https://i.pinimg.com/736x/41/b7/d3/41b7d38d90268e7a4c6e3c4bbd815c2c.jpg" alt="Caterers" class="job-img">
-      <p>🍴 Caterers</p>
+    <div class="job-card" onclick="openModal('Caterers','https://i.pinimg.com/736x/d5/0e/a9/d50ea9f4a58228cddc5f833b7d7a3bfa.jpg')">
+      <img src="https://i.pinimg.com/736x/d5/0e/a9/d50ea9f4a58228cddc5f833b7d7a3bfa.jpg" class="job-img"><p>🍴 Caterers</p>
     </div>
-
-    <div class="job-card">
-      <img src="https://i.pinimg.com/736x/aa/8e/52/aa8e52021b43f8f7d39528b3a0b4a0f3.jpg" alt="Bar Staff" class="job-img">
-      <p>🍹 Bar Staff</p>
+    <div class="job-card" onclick="openModal('Bar Staff','https://i.pinimg.com/736x/4c/77/6c/4c776c3ff991687df6228e4cf16c2d94.jpg')">
+      <img src="https://i.pinimg.com/736x/4c/77/6c/4c776c3ff991687df6228e4cf16c2d94.jpg" class="job-img"><p>🍹 Bar Staff</p>
     </div>
-
-    <div class="job-card">
-      <img src="https://i.pinimg.com/736x/87/9e/46/879e46a158c27c3f86dd5f991f8262de.jpg" alt="Factory Workers" class="job-img">
-      <p>🏭 Factory Workers</p>
+    <div class="job-card" onclick="openModal('Factory Workers','https://i.pinimg.com/736x/d0/3a/7a/d03a7a0ef4686126a68992c7b2c39bfb.jpg')">
+      <img src="https://i.pinimg.com/736x/d0/3a/7a/d03a7a0ef4686126a68992c7b2c39bfb.jpg" class="job-img"><p>🏭 Factory Workers</p>
     </div>
-
-    <div class="job-card">
-      <img src="https://i.pinimg.com/736x/20/63/4b/20634b5100c57c3b449f9d8e7683518d.jpg" alt="Farmers" class="job-img">
-      <p>🌾 Farmers</p>
+    <div class="job-card" onclick="openModal('Farmers','https://i.pinimg.com/736x/3b/8c/73/3b8c73af2497b8dbacb98175b84a3a84.jpg')">
+      <img src="https://i.pinimg.com/736x/3b/8c/73/3b8c73af2497b8dbacb98175b84a3a84.jpg" class="job-img"><p>🌾 Farmers</p>
     </div>
-
-    <div class="job-card">
-      <img src="https://i.pinimg.com/736x/5f/a7/34/5fa734ae2df2e2b4a7c016fbc0533e41.jpg" alt="Plumbers" class="job-img">
-      <p>🚧 Plumbers</p>
+    <div class="job-card" onclick="openModal('Plumbers','https://i.pinimg.com/736x/60/b1/7e/60b17e3b74c1f07b8b11b5de73b2f785.jpg')">
+      <img src="https://i.pinimg.com/736x/60/b1/7e/60b17e3b74c1f07b8b11b5de73b2f785.jpg" class="job-img"><p>🚧 Plumbers</p>
     </div>
-
-    <div class="job-card">
-      <img src="https://i.pinimg.com/736x/65/ea/61/65ea6112b8037f6847b4eac4f260582a.jpg" alt="Constructors" class="job-img">
-      <p>🏗️ Constructors</p>
+    <div class="job-card" onclick="openModal('Constructors','https://i.pinimg.com/736x/98/3b/f4/983bf4f8a154a181c5bbf1dfc4562d88.jpg')">
+      <img src="https://i.pinimg.com/736x/98/3b/f4/983bf4f8a154a181c5bbf1dfc4562d88.jpg" class="job-img"><p>🏗️ Constructors</p>
     </div>
-
-    <div class="job-card">
-      <img src="https://i.pinimg.com/736x/ee/12/32/ee123205b8b01e86c6769a9175ffea9e.jpg" alt="Drivers" class="job-img">
-      <p>🚗 Drivers</p>
+    <div class="job-card" onclick="openModal('Drivers','https://i.pinimg.com/736x/47/68/3a/47683a57d4a71a10a7e1c9b7bdb0e5e4.jpg')">
+      <img src="https://i.pinimg.com/736x/47/68/3a/47683a57d4a71a10a7e1c9b7bdb0e5e4.jpg" class="job-img"><p>🚗 Drivers</p>
     </div>
-
   </div>
 </section>
 
-<!-- ✅ Styling for job section -->
-<style>
-.jobs {
-  text-align: center;
-  padding: 60px 20px;
-  background: #f9f9f9;
-}
+<!-- Modal -->
+<div id="jobModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <img id="modalImage" src="">
+    <h2 id="modalTitle"></h2>
+    <p>Apply now to join our verified European job program for <span id="modalText"></span>. We’ll handle all travel and visa assistance for you.</p>
+    <button style="background:var(--gold);border:none;padding:10px 20px;border-radius:6px;cursor:pointer;" onclick="closeModal()">Close</button>
+  </div>
+</div>
 
-.jobs h3 {
-  font-size: 28px;
-  margin-bottom: 30px;
-  color: #222;
-}
-
-.job-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 25px;
-  justify-items: center;
-}
-
-.job-card {
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  padding: 15px;
-  width: 100%;
-  max-width: 200px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.job-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
-}
-
-.job-img {
-  width: 100%;
-  height: 130px;
-  object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 10px;
-}
-</style>
-
-<!-- ✅ Testimonials -->
 <section class="testimonials">
   <h3>What Our Clients Say</h3>
   <div class="testimonial-grid">
-    <div class="testimonial"><img src="https://pin.it/59a9C8oOE" alt="Samuel testimonial EuroVantage"><p>“EuroVantage made my job move to Europe so smooth and professional. Highly recommend!”</p><h4>Samuel 🇬🇭</h4></div>
-    <div class="testimonial"><img src="https://pin.it/4mJ8KMqrk" alt="Elena testimonial EuroVantage"><p>“Within 3 weeks I got my verified job offer and full visa support. Thank you EuroVantage!”</p><h4>Elena 🇪🇸</h4></div>
-    <div class="testimonial"><img src="https://pin.it/3KQHIB760" alt="Richard testimonial EuroVantage"><p>“Thanks to EuroVantage, I’m now a nurse assistant in Germany. Life-changing experience!”</p><h4>Rita 🇩🇪</h4></div>
-    <div class="testimonial"><img src="https://pin.it/24OifBamT" alt="Kwesi testimonial EuroVantage"><p>“From interviews to travel, they guided me every step of the way.”</p><h4>Kwesi 🇬🇭</h4></div>
-    <div class="testimonial"><img src="https://pin.it/27U9NlbPH" alt="Linda testimonial EuroVantage"><p>“Honest agency — they delivered exactly what they promised.”</p><h4>Linda 🇳🇬</h4></div>
-    <div class="testimonial"><img src="https://pin.it/iUFSmiVFb" alt="Ama testimonial EuroVantage"><p>“I got a restaurant job in Italy within one month. Thank you EuroVantage!”</p><h4>Ama 🇮🇹</h4></div>
+    <div class="testimonial"><img src="https://pin.it/59a9C8oOE"><p>“EuroVantage made my job move to Europe so smooth and professional.”</p><h4>Samuel 🇬🇭</h4></div>
+    <div class="testimonial"><img src="https://pin.it/4mJ8KMqrk"><p>“Within 3 weeks I got my verified job offer and visa support.”</p><h4>Elena 🇪🇸</h4></div>
+    <div class="testimonial"><img src="https://pin.it/3KQHIB760"><p>“Now a nurse assistant in Germany — life changing!”</p><h4>Rita 🇩🇪</h4></div>
   </div>
 </section>
 
-<!-- Floating WhatsApp Icon -->
-<a href="https://wa.me/233593231752?text=Hello%20EuroVantage!%20I%27d%20like%20to%20make%20an%20inquiry." 
-   class="whatsapp-float" 
-   target="_blank" 
-   title="Chat with us on WhatsApp">
-   💬
-</a>
+<a href="https://wa.me/233593231752" class="whatsapp-float" target="_blank">💬</a>
+
 <footer>
   © <script>document.write(new Date().getFullYear())</script> EuroVantage — Accra, Ghana. All rights reserved.
 </footer>
 
+<script>
+function openModal(title, img) {
+  document.getElementById('modalTitle').innerText = title;
+  document.getElementById('modalText').innerText = title;
+  document.getElementById('modalImage').src = img;
+  document.getElementById('jobModal').style.display = 'flex';
+}
+function closeModal() {
+  document.getElementById('jobModal').style.display = 'none';
+}
+window.onclick = function(event) {
+  const modal = document.getElementById('jobModal');
+  if (event.target === modal) modal.style.display = 'none';
+}
+</script>
+
 </body>
-  </html>
+</html>
