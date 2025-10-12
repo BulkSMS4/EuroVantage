@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Available Jobs — EuroVantage</title>
+<style>
+:root {
+  --gold: #d4af37;
+  --dark: #050505;
+  --text-light: #f2f2f2;
+}
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: var(--dark);
+  color: var(--text-light);
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background: rgba(0,0,0,0.9);
+  border-bottom: 1px solid rgba(212,175,55,0.2);
+}
+header h1 {
+  color: var(--gold);
+  font-family: "Times New Roman", serif;
+  font-weight: 700;
+  font-size: 28px;
+}
+nav a {
+  color: var(--text-light);
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: 500;
+}
+nav a:hover { color: var(--gold); }
+
+main {
+  max-width: 1100px;
+  margin: 50px auto;
+  padding: 20px;
+}
+h2 {
+  color: var(--gold);
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.jobs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+.job-card {
+  background: #0b0b0b;
+  border: 1px solid rgba(212,175,55,0.3);
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 0 10px rgba(212,175,55,0.1);
+  transition: all 0.3s ease;
+}
+.job-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px rgba(212,175,55,0.2);
+}
+.job-card h3 {
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.job-card p {
+  color: #ccc;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.job-card .location {
+  color: #999;
+  font-style: italic;
+  margin: 10px 0;
+}
+.apply-btn {
+  display: inline-block;
+  background: var(--gold);
+  color: #000;
+  padding: 10px 18px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+.apply-btn:hover {
+  background: #f1d675;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  border-top: 1px solid rgba(212,175,55,0.2);
+  font-size: 14px;
+  color: #aaa;
+  margin-top: 40px;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>✨ EuroVantage</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="jobs.html">Jobs</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <h2>Current Job Openings in Europe 🇪🇺</h2>
+
+  <div class="jobs-grid">
+    <div class="job-card">
+      <h3>🏨 Hotel Receptionist</h3>
+      <p class="location">Location: Berlin, Germany</p>
+      <p>Join a 5-star luxury hotel as a front-desk receptionist. Great communication skills and English proficiency required. Accommodation provided.</p>
+      <a href="apply.html?job=receptionist" class="apply-btn">Apply Now</a>
+    </div>
+
+    <div class="job-card">
+      <h3>🍽️ Restaurant Waiter / Waitress</h3>
+      <p class="location">Location: Rome, Italy</p>
+      <p>Assist guests with a smile in high-end restaurants. Experience in customer service preferred. Visa sponsorship available.</p>
+      <a href="apply.html?job=waiter" class="apply-btn">Apply Now</a>
+    </div>
+
+    <div class="job-card">
+      <h3>🏭 Factory Worker</h3>
+      <p class="location">Location: Warsaw, Poland</p>
+      <p>Work with a leading electronics production company. No experience needed — training provided. Accommodation included.</p>
+      <a href="apply.html?job=factory" class="apply-btn">Apply Now</a>
+    </div>
+
+    <div class="job-card">
+      <h3>👷 Construction Assistant</h3>
+      <p class="location">Location: Amsterdam, Netherlands</p>
+      <p>Assist engineers and foremen on various sites. Safety gear and housing included. Must be physically fit and reliable.</p>
+      <a href="apply.html?job=construction" class="apply-btn">Apply Now</a>
+    </div>
+
+    <div class="job-card">
+      <h3>🧹 Housekeeping Staff</h3>
+      <p class="location">Location: Paris, France</p>
+      <p>Join a 4-star hotel as a room attendant. Responsible for maintaining rooms and common areas. Meals and lodging covered.</p>
+      <a href="apply.html?job=housekeeping" class="apply-btn">Apply Now</a>
+    </div>
+
+    <div class="job-card">
+      <h3>👩‍⚕️ Healthcare Assistant</h3>
+      <p class="location">Location: Dublin, Ireland</p>
+      <p>Provide care and support to elderly and disabled clients in care homes. Must have basic first aid skills.</p>
+      <a href="apply.html?job=healthcare" class="apply-btn">Apply Now</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  © <script>document.write(new Date().getFullYear())</script> EuroVantage — Accra, Ghana. All rights reserved.
+</footer>
+
+</body>
+</html>
