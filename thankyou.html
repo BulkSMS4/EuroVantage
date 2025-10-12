@@ -21,6 +21,8 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
+
+/* Header */
 header {
   display: flex;
   justify-content: space-between;
@@ -43,6 +45,7 @@ nav a {
 }
 nav a:hover { color: var(--gold); }
 
+/* Main */
 main {
   flex: 1;
   display: flex;
@@ -50,27 +53,31 @@ main {
   justify-content: center;
   align-items: center;
   padding: 60px 20px;
+  animation: fadeIn 1.5s ease-in-out;
 }
 main h2 {
-  font-size: 42px;
-  color: var(--gold);
+  font-size: 48px;
+  font-weight: 700;
   margin-bottom: 10px;
+  background: linear-gradient(90deg, var(--gold), #fff4b0, var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
 }
 main p {
   font-size: 18px;
   max-width: 600px;
   line-height: 1.6;
   color: #ccc;
+  opacity: 0;
+  animation: fadeInText 2s ease forwards 0.8s;
 }
 main img {
   width: 120px;
   height: 120px;
   margin: 30px 0;
   animation: pop 1s ease;
-}
-@keyframes pop {
-  from { transform: scale(0.6); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
 }
 main a {
   background: var(--gold);
@@ -81,11 +88,31 @@ main a {
   font-weight: bold;
   margin-top: 25px;
   display: inline-block;
+  opacity: 0;
+  animation: fadeInText 2s ease forwards 1.2s;
 }
 main a:hover {
   background: #c7a130;
 }
 
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pop {
+  from { transform: scale(0.6); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+@keyframes fadeInText {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes shimmer {
+  to { background-position: 200% center; }
+}
+
+/* Footer */
 footer {
   text-align: center;
   padding: 25px;
@@ -108,7 +135,7 @@ footer {
 </header>
 
 <main>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Checkmark.svg/1024px-Checkmark.svg.png" alt="Success">
+  <img src="checkmark.png" alt="Success">
   <h2>Thank You!</h2>
   <p>Your message has been successfully sent. Our team will get back to you soon to help you start your European journey with confidence.</p>
   <a href="index.html">← Back to Home</a>
