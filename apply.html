@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apply Now — EuroVantage</title>
+<style>
+:root {
+  --gold: #d4af37;
+  --dark: #050505;
+  --text-light: #f2f2f2;
+}
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: var(--dark);
+  color: var(--text-light);
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background: rgba(0,0,0,0.9);
+  border-bottom: 1px solid rgba(212,175,55,0.2);
+}
+header h1 {
+  color: var(--gold);
+  font-family: "Times New Roman", serif;
+  font-weight: 700;
+  font-size: 28px;
+}
+nav a {
+  color: var(--text-light);
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: 500;
+}
+nav a:hover { color: var(--gold); }
+
+main {
+  max-width: 600px;
+  margin: 60px auto;
+  background: #0b0b0b;
+  border: 1px solid rgba(212,175,55,0.3);
+  border-radius: 15px;
+  padding: 35px 40px;
+  box-shadow: 0 0 20px rgba(212,175,55,0.15);
+}
+h2 {
+  color: var(--gold);
+  text-align: center;
+  margin-bottom: 25px;
+}
+p.job-title {
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 25px;
+  color: #ccc;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gold);
+}
+input, textarea, select {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #1a1a1a;
+  color: var(--text-light);
+  font-size: 14px;
+}
+input:focus, textarea:focus, select:focus {
+  outline: 1px solid var(--gold);
+}
+button {
+  background: var(--gold);
+  color: #000;
+  font-weight: 700;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+  padding: 14px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+button:hover {
+  background: #f1d675;
+}
+.success {
+  display: none;
+  text-align: center;
+  background: rgba(212,175,55,0.15);
+  border: 1px solid rgba(212,175,55,0.4);
+  color: var(--gold);
+  padding: 12px;
+  border-radius: 10px;
+  margin-top: 15px;
+}
+footer {
+  text-align: center;
+  padding: 25px;
+  border-top: 1px solid rgba(212,175,55,0.2);
+  font-size: 14px;
+  color: #aaa;
+  margin-top: 40px;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>✨ EuroVantage</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="jobs.html">Jobs</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <h2>Apply Now</h2>
+  <p class="job-title">Position: <span id="jobTitle">Loading...</span></p>
+
+  <form id="applyForm">
+    <label>Full Name</label>
+    <input type="text" name="name" required>
+
+    <label>Email Address</label>
+    <input type="email" name="email" required>
+
+    <label>Phone Number (WhatsApp preferred)</label>
+    <input type="tel" name="phone" required>
+
+    <label>Upload CV / Resume</label>
+    <input type="file" name="resume" accept=".pdf,.doc,.docx" required>
+
+    <label>Short Message</label>
+    <textarea name="message" rows="4" placeholder="Write a brief message..."></textarea>
+
+    <button type="submit">Submit Application</button>
+  </form>
+
+  <div class="success" id="successMessage">✅ Thank you! Your application has been submitted successfully.</div>
+</main>
+
+<footer>
+  © <script>document.write(new Date().getFullYear())</script> EuroVantage — Accra, Ghana. All rights reserved.
+</footer>
+
+<script>
+// Get job title from URL (?job=xyz)
+const urlParams = new URLSearchParams(window.location.search);
+const job = urlParams.get("job");
+document.getElementById("jobTitle").textContent = job
+  ? job.replace(/-/g, " ").replace(/\b\w/g, c => c.toUpperCase())
+  : "General Application";
+
+// Handle fake submission (demo)
+document.getElementById("applyForm").addEventListener("submit", e => {
+  e.preventDefault();
+  document.getElementById("successMessage").style.display = "block";
+  e.target.reset();
+});
+</script>
+
+</body>
+</html>
