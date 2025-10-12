@@ -128,21 +128,28 @@ footer {
   margin-top: 40px;
 }
 
-/* WhatsApp Button */
-.whatsapp-btn {
-  display: inline-block;
-  background: #25D366;
+/* Floating WhatsApp Button */
+.whatsapp-float {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background-color: #25D366;
   color: white;
-  padding: 12px 20px;
-  border-radius: 8px;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
   text-decoration: none;
-  font-weight: 600;
-  text-align: center;
-  margin-top: 10px;
-  transition: 0.3s;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  z-index: 9999;
+  transition: transform 0.3s, background 0.3s;
 }
-.whatsapp-btn:hover {
-  background: #1eb45e;
+.whatsapp-float:hover {
+  background-color: #1eb45e;
+  transform: scale(1.1);
 }
 </style>
 </head>
@@ -167,16 +174,13 @@ footer {
       <p>Accra, Ghana</p>
 
       <h3>📞 Call / WhatsApp</h3>
-      <p><a href="https://wa.me/233539121847" target="_blank">Chat on WhatsApp: +233 539 121 847</a></p>
+      <p><a href="https://wa.me/233539121847" target="_blank">+233 539 121 847</a></p>
 
       <h3>✉️ Email</h3>
       <p><a href="mailto:info@eurovantage.com">info@eurovantage.com</a></p>
 
       <h3>🕐 Office Hours</h3>
       <p>Monday – Saturday: 9:00 AM – 5:00 PM</p>
-
-      <!-- WhatsApp Button -->
-      <a class="whatsapp-btn" href="https://wa.me/233539121847?text=Hello%20EuroVantage!%20I%27d%20like%20to%20make%20an%20inquiry." target="_blank">💬 Chat with us on WhatsApp</a>
     </div>
 
     <form id="contactForm">
@@ -198,6 +202,14 @@ footer {
 <footer>
   © <script>document.write(new Date().getFullYear())</script> EuroVantage — Accra, Ghana. All rights reserved.
 </footer>
+
+<!-- Floating WhatsApp Icon -->
+<a href="https://wa.me/233539121847?text=Hello%20EuroVantage!%20I%27d%20like%20to%20make%20an%20inquiry." 
+   class="whatsapp-float" 
+   target="_blank" 
+   title="Chat with us on WhatsApp">
+   💬
+</a>
 
 <script>
 document.getElementById("contactForm").addEventListener("submit", e => {
