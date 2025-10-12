@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>EuroVantage — Advance with Confidence. Arrive in Style.</title>
+<meta name="description" content="EuroVantage connects skilled professionals with verified European work and travel opportunities. Advance your career with confidence and arrive in style.">
+<link rel="icon" href="favicon.png">
 <style>
 :root {
   --gold: #d4af37;
@@ -74,6 +76,47 @@ nav a:hover { color: var(--gold); }
 }
 .hero button:hover {
   background: #c7a130;
+}
+
+/* Team Section */
+.team {
+  text-align: center;
+  padding: 60px 20px;
+  background: #0a0a0a;
+}
+.team h3 {
+  color: var(--gold);
+  font-size: 26px;
+  margin-bottom: 25px;
+}
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.team-member {
+  background: #101010;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid rgba(212,175,55,0.2);
+  transition: 0.3s;
+}
+.team-member:hover {
+  transform: scale(1.03);
+  border-color: var(--gold);
+}
+.team-member img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.team-member h4 {
+  color: var(--gold);
+  margin-top: 10px;
+  font-size: 16px;
 }
 
 /* Job Section */
@@ -171,6 +214,19 @@ footer {
   </div>
 </section>
 
+<!-- Team / Clients Helped -->
+<section class="team">
+  <h3>People We’ve Helped Secure European Jobs</h3>
+  <div class="team-grid">
+    <div class="team-member"><img src="team1.jpg" alt=""><h4>Kwame - Hotel Staff</h4></div>
+    <div class="team-member"><img src="team2.jpg" alt=""><h4>Sarah - Caregiver</h4></div>
+    <div class="team-member"><img src="team3.jpg" alt=""><h4>Lucas - Construction Worker</h4></div>
+    <div class="team-member"><img src="team4.jpg" alt=""><h4>Amira - Factory Supervisor</h4></div>
+    <div class="team-member"><img src="team5.jpg" alt=""><h4>David - Chef Assistant</h4></div>
+    <div class="team-member"><img src="team6.jpg" alt=""><h4>Helena - Hotel Front Desk</h4></div>
+  </div>
+</section>
+
 <section class="jobs">
   <h3>Popular Job Categories</h3>
   <div class="job-grid">
@@ -187,46 +243,18 @@ footer {
 <section class="testimonials">
   <h3>What Our Clients Say</h3>
   <div class="testimonial-grid">
-    <div class="testimonial">
-      <img src="person1.jpg" alt="Client">
-      <p>“EuroVantage made my job move to Europe so smooth and professional. Highly recommend!”</p>
-      <h4>Samuel 🇬🇭</h4>
-    </div>
-    <div class="testimonial">
-      <img src="person2.jpg" alt="Client">
-      <p>“Within 3 weeks I got my verified job offer and full visa support. Thank you EuroVantage!”</p>
-      <h4>Elena 🇪🇸</h4>
-    </div>
-    <div class="testimonial">
-      <img src="person3.jpg" alt="Client">
-      <p>“From interviews to travel, they guided me step-by-step. I’m now working in Europe!”</p>
-      <h4>Kwesi 🇬🇭</h4>
-    </div>
-    <div class="testimonial">
-      <img src="person4.jpg" alt="Client">
-      <p>“Honest agency — they delivered exactly what they promised.”</p>
-      <h4>Linda 🇳🇬</h4>
-    </div>
-    <div class="testimonial">
-      <img src="person5.jpg" alt="Client">
-      <p>“Fast process, clear communication, and genuine results.”</p>
-      <h4>Marco 🇮🇹</h4>
-    </div>
-    <div class="testimonial">
-      <img src="person6.jpg" alt="Client">
-      <p>“I never thought getting a European job could be this easy.”</p>
-      <h4>Grace 🇰🇪</h4>
-    </div>
-    <div class="testimonial">
-      <img src="person7.jpg" alt="Client">
-      <p>“Everything was handled professionally from start to finish.”</p>
-      <h4>Peter 🇫🇷</h4>
-    </div>
-    <div class="testimonial">
-      <img src="person8.jpg" alt="Client">
-      <p>“Trustworthy, reliable, and efficient — EuroVantage changed my life.”</p>
-      <h4>Amara 🇳🇬</h4>
-    </div>
+    <div class="testimonial"><img src="person1.jpg"><p>“EuroVantage made my job move to Europe so smooth and professional. Highly recommend!”</p><h4>Samuel 🇬🇭</h4></div>
+    <div class="testimonial"><img src="person2.jpg"><p>“Within 3 weeks I got my verified job offer and full visa support. Thank you EuroVantage!”</p><h4>Elena 🇪🇸</h4></div>
+    <div class="testimonial"><img src="person3.jpg"><p>“From interviews to travel, they guided me step-by-step. I’m now working in Europe!”</p><h4>Kwesi 🇬🇭</h4></div>
+    <div class="testimonial"><img src="person4.jpg"><p>“Honest agency — they delivered exactly what they promised.”</p><h4>Linda 🇳🇬</h4></div>
+    <div class="testimonial"><img src="person5.jpg"><p>“Fast process, clear communication, and genuine results.”</p><h4>Marco 🇮🇹</h4></div>
+    <div class="testimonial"><img src="person6.jpg"><p>“I never thought getting a European job could be this easy.”</p><h4>Grace 🇰🇪</h4></div>
+    <div class="testimonial"><img src="person7.jpg"><p>“Everything was handled professionally from start to finish.”</p><h4>Peter 🇫🇷</h4></div>
+    <div class="testimonial"><img src="person8.jpg"><p>“Trustworthy, reliable, and efficient — EuroVantage changed my life.”</p><h4>Amara 🇳🇬</h4></div>
+    <div class="testimonial"><img src="person9.jpg"><p>“I applied online and within a month I was working in Italy — amazing!”</p><h4>Naomi 🇰🇪</h4></div>
+    <div class="testimonial"><img src="person10.jpg"><p>“They even helped arrange my accommodation in Germany. Top-notch service.”</p><h4>Jonas 🇩🇪</h4></div>
+    <div class="testimonial"><img src="person11.jpg"><p>“Very transparent and supportive team. They care about people.”</p><h4>Aisha 🇳🇬</h4></div>
+    <div class="testimonial"><img src="person12.jpg"><p>“I’m now in Spain with a secure job thanks to EuroVantage’s guidance.”</p><h4>Michael 🇬🇭</h4></div>
   </div>
 </section>
 
