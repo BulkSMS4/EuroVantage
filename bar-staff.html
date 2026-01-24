@@ -1,19 +1,326 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Bar Staff — EuroVantage Jobs</title>
 <style>
-body {font-family:"Poppins",sans-serif;background:#f9f9f9;text-align:center;padding:40px;}
-img {width:90%;max-width:500px;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,0.2);}
-a {display:inline-block;margin-top:25px;padding:10px 20px;background:#d4af37;color:#fff;border-radius:8px;text-decoration:none;}
+  body {
+    font-family: "Poppins", sans-serif;
+    background: #f9f9f9;
+    text-align: center;
+    padding: 40px 20px;
+    color: #000;
+  }
+  img {
+    width: 90%;
+    max-width: 600px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    margin-bottom: 25px;
+  }
+  a {
+    display: inline-block;
+    margin-top: 35px;
+    padding: 12px 26px;
+    background: #d4af37;
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: background 0.3s ease;
+  }
+  a:hover {
+    background: #c7a130;
+  }
+  h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+    color: #d4af37;
+  }
+  p.description {
+    max-width: 900px;
+    margin: 0 auto 40px auto;
+    font-size: 18px;
+    line-height: 1.7;
+    text-align: justify;
+  }
+  section.salary {
+    max-width: 800px;
+    margin: 0 auto 60px auto;
+    background: #fff;
+    border-radius: 15px;
+    padding: 25px 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: left;
+  }
+  section.salary h3 {
+    color: #b88904;
+    margin-bottom: 20px;
+    font-size: 26px;
+  }
+  section.salary ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    font-size: 16px;
+    color: #333;
+  }
+  section.salary ul li {
+    margin-bottom: 10px;
+  }
+
+  /* Modal styles for apply form */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.75);
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    padding: 20px;
+  }
+  .modal-content {
+    background: #fff;
+    color: #000;
+    padding: 30px 40px;
+    border-radius: 12px;
+    max-width: 450px;
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+    text-align: left;
+  }
+  .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #333;
+  }
+  .modal-content h3 {
+    margin-top: 0;
+    color: #d4af37;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .modal-content label {
+    font-weight: 600;
+    margin-top: 15px;
+    display: block;
+    font-size: 14px;
+    color: #555;
+  }
+  .modal-content form input[type="text"],
+  .modal-content form input[type="email"],
+  .modal-content form input[type="tel"],
+  .modal-content form input[type="file"] {
+    width: 100%;
+    padding: 12px 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+  .modal-content form button[type="submit"] {
+    background: #d4af37;
+    border: none;
+    padding: 14px 0;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 25px;
+  }
+  .modal-content form button[type="submit"]:hover {
+    background: #c7a130;
+  }
+
+  /* Apply button style (inherits from a but using button element for easier control) */
+  #applyBtn {
+    background: #d4af37;
+    color: #000;
+    border: none;
+    padding: 15px 40px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background 0.3s ease;
+    margin: 20px auto 60px;
+    display: block;
+    max-width: 200px;
+  }
+  #applyBtn:hover {
+    background: #c7a130;
+  }
+
+  /* Gallery styles */
+  .gallery {
+    max-width: 900px;
+    margin: 0 auto 40px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 15px;
+  }
+  .gallery img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+  .gallery img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+  }
 </style>
 </head>
 <body>
-<h2>🍹 Bar Staff</h2>
+
+<h2>🍹 Bar Staff — European Opportunities</h2>
 <img src="https://i.pinimg.com/736x/4c/77/6c/4c776c3ff991687df6228e4cf16c2d94.jpg" alt="Bar Staff">
-<p>Join stylish hotels and bars across Europe serving guests, mixing cocktails, and creating memorable experiences.</p>
+
+<p class="description">
+  Step into the vibrant nightlife and hospitality scene across Europe by joining upscale hotels, bustling bars, beach resorts, and exclusive clubs as a valued member of the bar staff. Bar staff positions encompass bartenders, cocktail servers, bar backs, and baristas, where you will engage with international guests, craft exquisite cocktails, pour a wide variety of drinks, and ensure a welcoming atmosphere for all visitors.<br><br>
+
+  This role demands excellent communication skills, a friendly and energetic attitude, and a passion for hospitality. Whether you’re a seasoned bartender with mixology experience or new to the industry, Europe offers diverse opportunities tailored to your skill level. You will be part of dynamic teams, often working during evenings and weekends, in lively environments that promise excitement, cultural exposure, and the chance to build a rewarding international career.<br><br>
+
+  EuroVantage partners with verified establishments in countries such as Spain, Portugal, Germany, and the Netherlands, providing visa assistance, job placement, and ongoing support to ensure your success and safety abroad.
+</p>
+
+<!-- New Gallery Section with 10 relevant images -->
+<div class="gallery" aria-label="Bar staff image gallery">
+  <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80" alt="Bartender pouring cocktail" title="Bartender pouring cocktail">
+  <img src="https://images.unsplash.com/photo-1529692236671-fbe6e18f6b68?auto=format&fit=crop&w=400&q=80" alt="Bartender mixing drink" title="Bartender mixing drink">
+  <img src="https://images.unsplash.com/photo-1533777324565-a04df0e527b7?auto=format&fit=crop&w=400&q=80" alt="Bar counter with cocktails" title="Bar counter with cocktails">
+  <img src="https://images.unsplash.com/photo-1551024601-bec78faa0f31?auto=format&fit=crop&w=400&q=80" alt="Bottles behind bar" title="Bottles behind bar">
+  <img src="https://images.unsplash.com/photo-1542345812-d98b5cd6cf98?auto=format&fit=crop&w=400&q=80" alt="Bartender with shaker" title="Bartender with shaker">
+  <img src="https://images.unsplash.com/photo-1556741533-f6acd647d2fb?auto=format&fit=crop&w=400&q=80" alt="Bartender serving drinks" title="Bartender serving drinks">
+  <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80" alt="Cocktail preparation" title="Cocktail preparation">
+  <img src="https://images.unsplash.com/photo-1532635244-438e2a9840d7?auto=format&fit=crop&w=400&q=80" alt="Bartender smiling" title="Bartender smiling">  
+  <img src="https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?auto=format&fit=crop&w=400&q=80" alt="Cocktails on bar counter" title="Cocktails on bar counter">
+  <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=400&q=80" alt="Bar staff working at night" title="Bar staff working at night">
+</div>
+
+<section class="salary">
+  <h3>💰 Salary & Compensation Details</h3>
+  <ul>
+    <li><strong>Full-Time Skilled Bartenders:</strong> Earn competitive monthly salaries ranging from <em>€1,800 to €2,800</em> depending on location, experience, and establishment prestige. Skilled bartenders with mixology knowledge and multilingual abilities often attract higher pay.</li>
+    
+    <li><strong>Entry-Level Bar Staff:</strong> Positions such as bar backs or cocktail servers typically earn between <em>€1,200 and €1,600</em> monthly. These roles are excellent for newcomers seeking to build experience and develop skills.</li>
+    
+    <li><strong>Part-Time Positions:</strong> Ideal for students or seasonal workers, part-time bar staff can expect hourly wages ranging from <em>€10 to €16 per hour</em>, often supplemented by tips. Evening and weekend shifts may offer premium pay.</li>
+    
+    <li><strong>Tips and Bonuses:</strong> Many bars and clubs encourage tipping, which can significantly boost income—sometimes adding up to 30-40% of base wages. Performance bonuses and seasonal incentives are also common, rewarding dedicated employees.</li>
+    
+    <li><strong>Additional Benefits:</strong> Some employers provide staff accommodation, meals, language courses, and transport allowances to facilitate smooth relocation and comfortable living abroad.</li>
+  </ul>
+</section>
+
+<section class="salary">
+  <h3>📋 Role Responsibilities & Skill Requirements</h3>
+  <ul>
+    <li>Welcoming and serving customers with a positive attitude while maintaining professional standards.</li>
+    <li>Preparing and mixing cocktails, pouring beers, and serving beverages according to recipes and customer preferences.</li>
+    <li>Maintaining cleanliness and organization of the bar area, including stocking supplies and utensils.</li>
+    <li>Handling cash, POS systems, and adhering to local alcohol service regulations.</li>
+    <li>Collaborating closely with waitstaff, kitchen teams, and management to ensure smooth operations and customer satisfaction.</li>
+    <li>Good knowledge of cocktails, wines, spirits, and beers is a plus but not mandatory for entry-level roles.</li>
+    <li>Strong communication skills and basic language abilities in English or the local language are highly beneficial.</li>
+  </ul>
+</section>
+
+<section class="salary">
+  <h3>🕒 Work Schedule & Career Growth</h3>
+  <ul>
+    <li>Shifts typically occur during late afternoons, evenings, and weekends, aligning with peak hospitality hours.</li>
+    <li>Full-time contracts generally involve 35-40 hours per week, with flexibility based on seasonal demands.</li>
+    <li>Part-time opportunities accommodate flexible hours for students, travelers, or those supplementing income.</li>
+    <li>Successful bar staff can progress to supervisory roles, bar management, or specialized cocktail mixologists.</li>
+    <li>Experience gained abroad opens doors to international hospitality careers or entrepreneurial ventures such as opening your own bar or consultancy.</li>
+  </ul>
+</section>
+
+<section class="salary">
+  <h3>🌍 Locations & Cultural Experience</h3>
+  <ul>
+    <li>Work in popular European cities with vibrant nightlife scenes including Barcelona, Amsterdam, Lisbon, Berlin, and Prague.</li>
+    <li>Immerse yourself in diverse cultures, learn new languages, and expand your professional network globally.</li>
+    <li>Enjoy work environments ranging from luxury beachfront resorts to trendy urban nightclubs and historic wine bars.</li>
+  </ul>
+</section>
+
+<!-- Apply Button -->
+<button id="applyBtn" aria-label="Apply for Bar Staff Job">Apply</button>
+
 <a href="index.html">← Back to Jobs</a>
+
+<!-- Modal for Apply Form -->
+<div id="applyModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
+  <div class="modal-content">
+    <span class="close-btn" id="closeModalBtn" aria-label="Close application form">&times;</span>
+    <h3 id="modalTitle">Apply for Bar Staff Position</h3>
+    <form action="https://formsubmit.co/eurovantage@gmail.com" method="POST" enctype="multipart/form-data" target="_blank">
+      <input type="hidden" name="Job Role" value="Bar Staff">
+
+      <label for="fullname">Full Name</label>
+      <input type="text" id="fullname" name="Full Name" placeholder="Full Name" required aria-required="true" />
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="Phone" placeholder="Phone Number" required aria-required="true" />
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="Email" placeholder="Email Address" required aria-required="true" />
+
+      <label for="cv">Upload CV (PDF, DOC)</label>
+      <input type="file" id="cv" name="CV" accept=".pdf,.doc,.docx" required aria-required="true" />
+
+      <!-- Optional FormSubmit settings -->
+      <input type="hidden" name="_subject" value="New Bar Staff Application - EuroVantage" />
+      <input type="hidden" name="_captcha" value="false" />
+
+      <button type="submit">Submit Application</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  const applyBtn = document.getElementById('applyBtn');
+  const applyModal = document.getElementById('applyModal');
+  const closeModalBtn = document.getElementById('closeModalBtn');
+
+  applyBtn.addEventListener('click', () => {
+    applyModal.style.display = 'flex';
+    applyModal.focus();
+  });
+
+  closeModalBtn.addEventListener('click', () => {
+    applyModal.style.display = 'none';
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === applyModal) {
+      applyModal.style.display = 'none';
+    }
+  });
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === "Escape" && applyModal.style.display === 'flex') {
+      applyModal.style.display = 'none';
+    }
+  });
+</script>
+
 </body>
 </html>
