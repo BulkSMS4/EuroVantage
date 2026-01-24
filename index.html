@@ -280,6 +280,197 @@ footer {
   font-size: 14px;
   color: #aaa;
 }
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.whatsapp-float img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+}
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+/* Agent List Popup */
+.agent-list {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  background: #fff;
+  width: 240px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  display: none;
+  overflow: hidden;
+  z-index: 999;
+}
+
+.agent-list a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  text-decoration: none;
+  color: #000;
+  border-bottom: 1px solid #eee;
+}
+
+.agent-list a:hover {
+  background: #f5f5f5;
+}
+
+.agent-list img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.care-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.care-float img {
+  width: 70px;   /* bigger image */
+  height: 70px;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.35));
+}
+
+/* Popup ABOVE the button */
+.agent-list {
+  position: fixed;
+  bottom: 110px; /* appears above main image */
+  right: 20px;
+  background: #fff;
+  width: 260px;
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  display: none;
+  overflow: hidden;
+  z-index: 999;
+}
+
+.agent-list a {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+  text-decoration: none;
+  color: #000;
+  border-bottom: 1px solid #eee;
+}
+
+.agent-list a:hover {
+  background: #f7f7f7;
+}
+
+.agent-list img {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+}
+
+/* ===============================
+   Customer Care Floating Button
+   (NO background, image only)
+================================ */
+
+.care-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.care-float img {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  background: none;          /* IMPORTANT */
+  border-radius: 0;          /* IMPORTANT */
+  box-shadow: none;          /* IMPORTANT */
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.35));
+  transition: transform 0.3s ease;
+}
+
+.care-float img:hover {
+  transform: scale(1.08);
+}
+
+/* ===============================
+   Agent Popup List (ABOVE button)
+================================ */
+
+.agent-list {
+  position: fixed;
+  bottom: 110px;
+  right: 20px;
+  background: #ffffff;
+  width: 260px;
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  display: none;
+  overflow: hidden;
+  z-index: 999;
+}
+
+.agent-list a {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+  text-decoration: none;
+  color: #000;
+  border-bottom: 1px solid #eee;
+}
+
+.agent-list a:last-child {
+  border-bottom: none;
+}
+
+.agent-list a:hover {
+  background: #f7f7f7;
+}
+
+.agent-list img {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+}
 </style>
 </head>
 <body>
@@ -319,32 +510,32 @@ footer {
   <div class="job-grid">
 
     <a href="caterers.html" class="job-card">
-      <img src="https://i.pinimg.com/736x/d5/0e/a9/d50ea9f4a58228cddc5f833b7d7a3bfa.jpg" class="job-img">
+      <img src="https://i.postimg.cc/9fWrCqdw/1000164841_removebg_preview.png" class="job-img">
       <p>🍴 Caterers</p>
     </a>
 
     <a href="bar-staff.html" class="job-card">
-      <img src="https://i.pinimg.com/736x/4c/77/6c/4c776c3ff991687df6228e4cf16c2d94.jpg" class="job-img">
+      <img src="https://spunout.ie/wp-content/uploads/2023/09/Young_person_working_in_bar-945x630.jpg" class="job-img">
       <p>🍹 Bar Staff</p>
     </a>
 
     <a href="factory-workers.html" class="job-card">
-      <img src="https://i.pinimg.com/736x/d0/3a/7a/d03a7a0ef4686126a68992c7b2c39bfb.jpg" class="job-img">
+      <img src="https://plus.unsplash.com/premium_photo-1661932816149-291a447e3022?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZmFjdG9yeSUyMHdvcmtlcnxlbnwwfHwwfHx8MA%3D%3D" class="job-img">
       <p>🏭 Factory Workers</p>
     </a>
 
     <a href="farmers.html" class="job-card">
-      <img src="https://i.pinimg.com/736x/3b/8c/73/3b8c73af2497b8dbacb98175b84a3a84.jpg" class="job-img">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKepq5PVj2Yz3bEHb7yCAEjoUx8DV-Fqfw20UQ8_JibxbRPuauZ0B3I5I&s=10" class="job-img">
       <p>🌾 Farmers</p>
     </a>
 
     <a href="plumbers.html" class="job-card">
-      <img src="https://i.pinimg.com/736x/60/b1/7e/60b17e3b74c1f07b8b11b5de73b2f785.jpg" class="job-img">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_P7A6qbxXyoK8tHQR9JQwWZgw1sfKFPsjf9w1CE2oDGoRt4RCfXJRdaY&s=10" class="job-img">
       <p>🚧 Plumbers</p>
     </a>
 
     <a href="drivers.html" class="job-card">
-      <img src="https://i.pinimg.com/736x/47/68/3a/47683a57d4a71a10a7e1c9b7bdb0e5e4.jpg" class="job-img">
+      <img src="https://cargotransporters.com/wp-content/uploads/2024/08/cdl-a-driving-jobs-home-weekly-greater-charlotte-nc-1024x608.webp" class="job-img">
       <p>🚗 Drivers</p>
     </a>
 
@@ -390,13 +581,77 @@ footer {
   </div>
 </section>
 
-<a href="https://wa.me/233593231752" class="whatsapp-float" target="_blank">💬</a>
+<a href="https://wa.me/233593231752" class="whatsapp-float" target="_blank">
+  <img src="https://i.postimg.cc/65WYv75p/1000164566_removebg_preview.png" alt="Customer Care" />
+</a>
+
+<!-- Floating Customer Care Button -->
+<div class="care-float" onclick="toggleAgents()">
+  <img id="agentImg" src="https://i.postimg.cc/90yXHWNk/1000164571_removebg_preview.png" alt="Customer Care">
+</div>
+
+<!-- Popup Agent List -->
+<div class="agent-list" id="agentList">
+  <a href="https://wa.me/233593231752" target="_blank">
+    <img src="https://i.postimg.cc/90yXHWNk/1000164571_removebg_preview.png">
+    <span>Anna Support</span>
+  </a>
+
+  <a href="https://wa.me/233593231753" target="_blank">
+    <img src="https://i.postimg.cc/65WYv75p/1000164566_removebg_preview.png">
+    <span>Michael  Customer Care</span>
+  </a>
+
+  <a href="https://wa.me/233593231754" target="_blank">
+    <img src="https://i.postimg.cc/PqRH8skK/1000164254-removebg-preview.png">
+    <span>Sophia Help Desk</span>
+  </a>
+</div>
 
 <footer>
   © <script>document.write(new Date().getFullYear())</script> EuroVantage — Accra, Ghana. All rights reserved.
 </footer>
 
 <script>
+const agents = [
+  {
+    name: "Anna",
+    img: "https://i.postimg.cc/90yXHWNk/1000164571_removebg_preview.png"
+  },
+  {
+    name: "Michael",
+    img: "https://i.postimg.cc/65WYv75p/1000164566_removebg_preview.png"
+  },
+  {
+    name: "Sophia",
+    img: "https://i.postimg.cc/PqRH8skK/1000164254-removebg-preview.png"
+  }
+];
+
+let currentAgent = 0;
+
+// Rotate customer care image & name
+setInterval(() => {
+  currentAgent = (currentAgent + 1) % agents.length;
+
+  const imgEl = document.getElementById("agentImg");
+  const nameEl = document.getElementById("agentName");
+
+  if (imgEl) imgEl.src = agents[currentAgent].img;
+  if (nameEl) nameEl.textContent = agents[currentAgent].name;
+
+}, 3000); // change every 3 seconds
+
+// Toggle agent popup list
+function toggleAgents() {
+  const list = document.getElementById("agentList");
+  if (!list) return;
+
+  list.style.display =
+    list.style.display === "block" ? "none" : "block";
+}
+
+// Optional modal functions (safe to keep)
 function openModal(title, img) {
   document.getElementById('modalTitle').innerText = title;
   document.getElementById('modalText').innerText = title;
