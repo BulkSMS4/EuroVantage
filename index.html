@@ -160,6 +160,9 @@ nav a:hover { color: var(--gold); }
   padding: 15px;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+  display: block;
 }
 .job-card:hover {
   transform: translateY(-5px);
@@ -286,7 +289,7 @@ footer {
   <nav>
     <a href="#">Home</a>
     <a href="#">About</a>
-    <a href="#">Jobs</a>
+    <a href="#jobs">Jobs</a>
     <a href="#">Contact</a>
   </nav>
 </header>
@@ -310,31 +313,41 @@ footer {
   </div>
 </section>
 
-<!-- ✅ Job Categories -->
-<section class="jobs">
+<!-- Jobs Section -->
+<section class="jobs" id="jobs">
   <h3>Popular Job Categories</h3>
   <div class="job-grid">
-    <div class="job-card" onclick="openModal('Caterers','https://i.pinimg.com/736x/d5/0e/a9/d50ea9f4a58228cddc5f833b7d7a3bfa.jpg')">
-      <img src="https://i.pinimg.com/736x/d5/0e/a9/d50ea9f4a58228cddc5f833b7d7a3bfa.jpg" class="job-img"><p>🍴 Caterers</p>
-    </div>
-    <div class="job-card" onclick="openModal('Bar Staff','https://i.pinimg.com/736x/4c/77/6c/4c776c3ff991687df6228e4cf16c2d94.jpg')">
-      <img src="https://i.pinimg.com/736x/4c/77/6c/4c776c3ff991687df6228e4cf16c2d94.jpg" class="job-img"><p>🍹 Bar Staff</p>
-    </div>
-    <div class="job-card" onclick="openModal('Factory Workers','https://i.pinimg.com/736x/d0/3a/7a/d03a7a0ef4686126a68992c7b2c39bfb.jpg')">
-      <img src="https://i.pinimg.com/736x/d0/3a/7a/d03a7a0ef4686126a68992c7b2c39bfb.jpg" class="job-img"><p>🏭 Factory Workers</p>
-    </div>
-    <div class="job-card" onclick="openModal('Farmers','https://i.pinimg.com/736x/3b/8c/73/3b8c73af2497b8dbacb98175b84a3a84.jpg')">
-      <img src="https://i.pinimg.com/736x/3b/8c/73/3b8c73af2497b8dbacb98175b84a3a84.jpg" class="job-img"><p>🌾 Farmers</p>
-    </div>
-    <div class="job-card" onclick="openModal('Plumbers','https://i.pinimg.com/736x/60/b1/7e/60b17e3b74c1f07b8b11b5de73b2f785.jpg')">
-      <img src="https://i.pinimg.com/736x/60/b1/7e/60b17e3b74c1f07b8b11b5de73b2f785.jpg" class="job-img"><p>🚧 Plumbers</p>
-    </div>
-    <div class="job-card" onclick="openModal('Constructors','https://i.pinimg.com/736x/98/3b/f4/983bf4f8a154a181c5bbf1dfc4562d88.jpg')">
-      <img src="https://i.pinimg.com/736x/98/3b/f4/983bf4f8a154a181c5bbf1dfc4562d88.jpg" class="job-img"><p>🏗️ Constructors</p>
-    </div>
-    <div class="job-card" onclick="openModal('Drivers','https://i.pinimg.com/736x/47/68/3a/47683a57d4a71a10a7e1c9b7bdb0e5e4.jpg')">
-      <img src="https://i.pinimg.com/736x/47/68/3a/47683a57d4a71a10a7e1c9b7bdb0e5e4.jpg" class="job-img"><p>🚗 Drivers</p>
-    </div>
+
+    <a href="caterers.html" class="job-card">
+      <img src="https://i.pinimg.com/736x/d5/0e/a9/d50ea9f4a58228cddc5f833b7d7a3bfa.jpg" class="job-img">
+      <p>🍴 Caterers</p>
+    </a>
+
+    <a href="bar-staff.html" class="job-card">
+      <img src="https://i.pinimg.com/736x/4c/77/6c/4c776c3ff991687df6228e4cf16c2d94.jpg" class="job-img">
+      <p>🍹 Bar Staff</p>
+    </a>
+
+    <a href="factory-workers.html" class="job-card">
+      <img src="https://i.pinimg.com/736x/d0/3a/7a/d03a7a0ef4686126a68992c7b2c39bfb.jpg" class="job-img">
+      <p>🏭 Factory Workers</p>
+    </a>
+
+    <a href="farmers.html" class="job-card">
+      <img src="https://i.pinimg.com/736x/3b/8c/73/3b8c73af2497b8dbacb98175b84a3a84.jpg" class="job-img">
+      <p>🌾 Farmers</p>
+    </a>
+
+    <a href="plumbers.html" class="job-card">
+      <img src="https://i.pinimg.com/736x/60/b1/7e/60b17e3b74c1f07b8b11b5de73b2f785.jpg" class="job-img">
+      <p>🚧 Plumbers</p>
+    </a>
+
+    <a href="drivers.html" class="job-card">
+      <img src="https://i.pinimg.com/736x/47/68/3a/47683a57d4a71a10a7e1c9b7bdb0e5e4.jpg" class="job-img">
+      <p>🚗 Drivers</p>
+    </a>
+
   </div>
 </section>
 
@@ -342,10 +355,29 @@ footer {
 <div id="jobModal" class="modal">
   <div class="modal-content">
     <span class="close-btn" onclick="closeModal()">&times;</span>
-    <img id="modalImage" src="">
+    <img id="modalImage" src="" alt="Job Image">
     <h2 id="modalTitle"></h2>
     <p>Apply now to join our verified European job program for <span id="modalText"></span>. We’ll handle all travel and visa assistance for you.</p>
-    <button style="background:var(--gold);border:none;padding:10px 20px;border-radius:6px;cursor:pointer;" onclick="closeModal()">Close</button>
+    
+    <form action="https://formsubmit.co/eurovantage@gmail.com" method="POST" enctype="multipart/form-data" target="_blank">
+      <input type="hidden" name="Job Role" id="jobRole" value="">
+      
+      <input type="text" name="Full Name" placeholder="Full Name" required style="width:100%;padding:10px;margin:6px 0;">
+      
+      <input type="tel" name="Phone" placeholder="Phone Number" required style="width:100%;padding:10px;margin:6px 0;">
+      
+      <input type="email" name="Email" placeholder="Email Address" required style="width:100%;padding:10px;margin:6px 0;">
+      
+      <input type="file" name="CV" accept=".pdf,.doc,.docx" required style="width:100%;padding:10px;margin:6px 0;">
+      
+      <!-- Optional FormSubmit settings -->
+      <input type="hidden" name="_subject" value="New Job Application - EuroVantage">
+      <input type="hidden" name="_captcha" value="false">
+      
+      <button type="submit" style="background:var(--gold);border:none;padding:12px 20px;border-radius:6px;cursor:pointer;width:100%;margin-top:10px;">
+        Apply for this Job
+      </button>
+    </form>
   </div>
 </div>
 
@@ -368,15 +400,18 @@ footer {
 function openModal(title, img) {
   document.getElementById('modalTitle').innerText = title;
   document.getElementById('modalText').innerText = title;
+  document.getElementById('jobRole').value = title;
   document.getElementById('modalImage').src = img;
   document.getElementById('jobModal').style.display = 'flex';
 }
+
 function closeModal() {
   document.getElementById('jobModal').style.display = 'none';
 }
+
 window.onclick = function(event) {
   const modal = document.getElementById('jobModal');
-  if (event.target === modal) modal.style.display = 'none';
+  if (event.target === modal) closeModal();
 }
 </script>
 
