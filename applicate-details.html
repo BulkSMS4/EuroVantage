@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Application Details</title>
+<style>
+body { font-family: Arial; background:#111; color:#fff; padding:20px }
+.card { background:#1c1c1c; padding:15px; margin:10px 0; border-radius:8px }
+.stat { font-size:20px; margin-bottom:10px }
+</style>
+</head>
+<body>
+
+<h2>📊 Website Statistics</h2>
+<div class="stat">👀 Visitors: <span id="visits">0</span></div>
+<div class="stat">🔔 Notifications Enabled: <span id="notifs">0</span></div>
+<div class="stat">📝 Applications: <span id="apps">0</span></div>
+
+<h2>📋 Application Details</h2>
+<div id="applications"></div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getFirestore, collection, getDocs, doc, getDoc } 
+from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// Load stats
+async function loadStats() {
+  const visits = await getDoc(doc(db, "stats", "visits"));
+  const notifs = await getDoc(doc(db, "stats", "notifications"));
+  const apps = await getDoc(doc(db, "stats", "applications"));
+
+  document.getElementById("visits").textContent = visits.exists() ? visits.data().total : 0;
+  document.getElementById("notifs").textContent = notifs.exists() ? notifs.data().total : 0;
+  document.getElementById("apps").textContent = apps.exists() ? apps.data().total : 0;
+}
+
+// Load applications
+async function loadApplications() {
+  const snap = await getDocs(collection(db, "applications"));
+  const box = document.getElementById("applications");
+
+  snap.forEach(doc => {
+    const d = doc.data();
+    box.innerHTML += `
+      <div class="card">
+        <b>${d.name}</b><br>
+        📧 ${d.email}<br>
+        📞 ${d.phone}<br>
+        💼 ${d.job}<br>
+        ⏰ ${new Date(d.time).toLocaleString()}
+      </div>
+    `;
+  });
+}
+
+loadStats();
+loadApplications();
+</script>
+
+</body>
+</html>
