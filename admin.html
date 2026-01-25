@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EuroVantage Admin Dashboard</title>
+<style>
+  body { font-family: Poppins, sans-serif; background:#050505; color:#fff; padding:20px; }
+  h1 { color:#d4af37; }
+  table { width:100%; border-collapse: collapse; margin-top:20px; }
+  th, td { padding:10px; border:1px solid #fff; text-align:left; }
+  th { background:#222; }
+  img.flag { width:30px; height:20px; margin-right:5px; vertical-align:middle; }
+  .counter { font-size:20px; margin:15px 0; }
+</style>
+</head>
+<body>
+
+<h1>EuroVantage Admin Dashboard</h1>
+
+<div class="counter">Total Visitors: <span id="visitsCount">0</span></div>
+<div class="counter">Notifications Enabled: <span id="notifCount">0</span></div>
+
+<h2>Applications Received</h2>
+<table id="applicationsTable">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Job Role</th>
+      <th>CV File</th>
+      <th>Country</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+
+<script type="module">
+const PASSWORD = "YourSecret123"; // 🔒 change this
+
+// Admin protection
+if (!sessionStorage.getItem("adminLoggedIn")) {
+  let input = prompt("Enter admin password:");
+  if (input === PASSWORD) {
+    sessionStorage.setItem("adminLoggedIn", "yes");
+  } else {
+    alert("Incorrect password! Redirecting...");
+    window.location.href = "/";
+  }
+}
+
+// Firebase setup
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getFirestore, doc, onSnapshot, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "🔴YOUR_API_KEY",
+  authDomain: "🔴YOUR_PROJECT.firebaseapp.com",
+  projectId: "🔴YOUR_PROJECT_ID"
+};
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// Live counters
+onSnapshot(doc(db, "stats", "visits"), (docSnap) => {
+  if (docSnap.exists()) document.getElementById("visitsCount").textContent = docSnap.data().total || 0;
+});
+onSnapshot(doc(db, "stats", "notifications"), (docSnap) => {
+  if (docSnap.exists()) document.getElementById("notifCount").textContent = docSnap.data().total || 0;
+});
+
+// Country flags
+const countryFlags = {
+  Canada: "https://flagcdn.com/w40/ca.png",
+  Germany: "https://flagcdn.com/w40/de.png",
+  UAE: "https://flagcdn.com/w40/ae.png",
+  UK: "https://flagcdn.com/w40/gb.png",
+  USA: "https://flagcdn.com/w40/us.png"
+};
+
+// Load applications
+async function loadApplications() {
+  const tbody = document.querySelector("#applicationsTable tbody");
+  tbody.innerHTML = "";
+  const querySnapshot = await getDocs(collection(db, "applications"));
+  querySnapshot.forEach(docSnap => {
+    const data = docSnap.data();
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${data.name}</td>
+      <td>${data.email}</td>
+      <td>${data.phone}</td>
+      <td>${data.jobRole}</td>
+      <td>${data.cv}</td>
+      <td><img class="flag" src="${countryFlags[data.country] || ''}"/>${data.country || ''}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+// Initial load
+loadApplications();
+</script>
+
+</body>
+</html>
