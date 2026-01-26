@@ -37,20 +37,7 @@ body {
   background: var(--dark);
   color: var(--text-light);
 }
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 50px;
-  background: rgba(0,0,0,0.9);
-  border-bottom: 1px solid rgba(212,175,55,0.2);
-}
-header h1 {
-  color: var(--gold);
-  font-family: "Times New Roman", serif;
-  font-weight: 700;
-  font-size: 28px;
-}
+
 nav a {
   color: var(--text-light);
   margin: 0 15px;
@@ -211,24 +198,6 @@ nav a:hover { color: var(--gold); }
   cursor: pointer;
 }
 
-/* Testimonials */
-.testimonials {
-  background: #0b0b0b;
-  padding: 80px 20px;
-  text-align: center;
-}
-.testimonials h3 {
-  color: var(--gold);
-  font-size: 30px;
-  margin-bottom: 40px;
-}
-.testimonial-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 25px;
-  max-width: 1100px;
-  margin: auto;
-}
 .testimonial {
   background: #101010;
   border-radius: 12px;
@@ -251,156 +220,12 @@ nav a:hover { color: var(--gold); }
   color: var(--gold);
 }
 
-/* WhatsApp Floating Button */
-.whatsapp-float {
-  position: fixed;
-  width: 60px;
-  height: 60px;
-  bottom: 25px;
-  right: 25px;
-  background-color: #25d366;
-  color: #fff;
-  border-radius: 50%;
-  text-align: center;
-  font-size: 35px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
-  z-index: 999;
-  transition: 0.3s;
-}
-.whatsapp-float:hover {
-  background-color: #1ebd5a;
-  transform: scale(1.1);
-}
-.whatsapp-float i { margin-top: 12px; }
-
 footer {
   text-align: center;
   padding: 25px;
   border-top: 1px solid rgba(212,175,55,0.2);
   font-size: 14px;
   color: #aaa;
-}
-
-.whatsapp-float {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 60px;
-  height: 60px;
-  background: #25D366;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 999;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-}
-
-.whatsapp-float img {
-  width: 38px;
-  height: 38px;
-  object-fit: contain;
-}
-
-.whatsapp-float {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #25D366;
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 1000;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  text-align: center;
-}
-
-/* Agent List Popup */
-.agent-list {
-  position: fixed;
-  bottom: 100px;
-  right: 20px;
-  background: #fff;
-  width: 240px;
-  border-radius: 12px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-  display: none;
-  overflow: hidden;
-  z-index: 999;
-}
-
-.agent-list a {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px;
-  text-decoration: none;
-  color: #000;
-  border-bottom: 1px solid #eee;
-}
-
-.agent-list a:hover {
-  background: #f5f5f5;
-}
-
-.agent-list img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-}
-
-.care-float {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  cursor: pointer;
-  z-index: 1000;
-}
-
-.care-float img {
-  width: 70px;   /* bigger image */
-  height: 70px;
-  object-fit: contain;
-  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.35));
-}
-
-/* Popup ABOVE the button */
-.agent-list {
-  position: fixed;
-  bottom: 110px; /* appears above main image */
-  right: 20px;
-  background: #fff;
-  width: 260px;
-  border-radius: 14px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-  display: none;
-  overflow: hidden;
-  z-index: 999;
-}
-
-.agent-list a {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 14px;
-  text-decoration: none;
-  color: #000;
-  border-bottom: 1px solid #eee;
-}
-
-.agent-list a:hover {
-  background: #f7f7f7;
-}
-
-.agent-list img {
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
 }
 
 /* ===============================
@@ -471,18 +296,257 @@ footer {
   height: 46px;
   border-radius: 50%;
 }
+
+/* ===============================
+   Professional Header Style
+================================ */
+
+header {
+  display: flex;
+  flex-direction: column;      /* Logo on top, nav below */
+  align-items: flex-start;     /* Align everything to the left */
+  padding: 20px 50px;
+  background: rgba(0,0,0,0.9); /* Optional: header background */
+  border-bottom: 1px solid rgba(212,175,55,0.2);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 28px;
+  font-family: "Times New Roman", serif;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.sub-nav {
+  display: flex;
+  gap: 16px;                  /* Spacing between nav items */
+  margin-top: 14px;           /* Space between logo and nav */
+  padding: 8px 16px;          /* Optional padding for nav container */
+  border-radius: 12px;        /* Rounded corners for nav background */
+  background: rgba(212,175,55,0.1); /* Subtle highlight */
+}
+
+.sub-nav a {
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.sub-nav a:hover {
+  color: var(--gold);
+  transform: translateY(-2px); /* Small hover lift effect */
+}
+
+/* Optional: Responsive tweak */
+@media screen and (max-width: 768px) {
+  header {
+    padding: 15px 25px;
+  }
+
+  .sub-nav {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+}
+
+/* ===============================
+   Job Info Section
+================================ */
+.job-info {
+  background: #0b0b0b;
+  color: var(--text-light);
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.job-info h3 {
+  font-size: 28px;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+
+.job-info p {
+  font-size: 17px;
+  max-width: 800px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+
+/* Slideshow */
+.slideshow-container {
+  position: relative;
+  max-width: 900px;
+  margin: auto 0 40px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+.slide {
+  display: none;
+}
+
+.slide img {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+}
+
+/* Prev/Next Buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 12px;
+  margin-top: -22px;
+  color: var(--gold);
+  font-weight: bold;
+  font-size: 24px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.4);
+  user-select: none;
+  transition: 0.3s;
+}
+
+.prev:hover, .next:hover {
+  background: rgba(212,175,55,0.8);
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* Video */
+.video-container {
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
+
+.video-container h4 {
+  font-size: 22px;
+  color: var(--gold);
+  margin-bottom: 15px;
+}
+
+.video-container video {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+                                                
+.footer-style3 {
+  background: #0b0b0b;
+  color: #f2f2f2;
+  padding: 25px 20px;
+  font-family: "Poppins", sans-serif;
+}
+.footer-style3 .footer-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1000px;
+  margin: auto;
+  flex-wrap: wrap;
+}
+.footer-style3 .footer-left p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+.footer-style3 .footer-left span {
+  color: #d4af37;
+  font-weight: 600;
+}
+.footer-style3 .footer-right a {
+  margin-left: 15px;
+}
+.footer-style3 .social-icon {
+  width: 28px;
+  height: 28px;
+  filter: brightness(0) invert(1);
+  transition: transform 0.3s, filter 0.3s;
+}
+.footer-style3 .social-icon:hover {
+  transform: scale(1.15);
+  filter: brightness(1) invert(0);
+}
+
+.testimonials {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  max-height: 480px;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.testimonial {
+  background: #fff;
+  border-radius: 12px;
+  padding: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+}
+
+.testimonial img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.testimonial p {
+  font-size: 14px;
+  color: #444;
+}
+
+.testimonial h4 {
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.see-more-btn {
+  margin-top: 18px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #111;
+  color: #fff;
+}
+
+.testimonials h3 {
+  color: var(--gold);
+}
+
+.testimonial-grid.expanded {
+  max-height: none;
+}
 </style>
 </head>
 <body>
 
 <header>
-  <h1>✨ EuroVantage</h1>
-  <nav>
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#jobs">Jobs</a>
-    <a href="#">Contact</a>
-  </nav>
+  <div class="logo-wrap">
+    <h1>✨ EuroVantage</h1>
+
+    <nav class="sub-nav">
+      <a href="#">Home</a>
+      <a href="#jobs">Jobs</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </div>
 </header>
 
 <section class="hero">
@@ -572,18 +636,49 @@ footer {
   </div>
 </div>
 
-<section class="testimonials">
-  <h3>What Our Clients Say</h3>
-  <div class="testimonial-grid">
-    <div class="testimonial"><img src="https://pin.it/59a9C8oOE"><p>“EuroVantage made my job move to Europe so smooth and professional.”</p><h4>Samuel 🇬🇭</h4></div>
-    <div class="testimonial"><img src="https://pin.it/4mJ8KMqrk"><p>“Within 3 weeks I got my verified job offer and visa support.”</p><h4>Elena 🇪🇸</h4></div>
-    <div class="testimonial"><img src="https://pin.it/3KQHIB760"><p>“Now a nurse assistant in Germany — life changing!”</p><h4>Rita 🇩🇪</h4></div>
+<!-- ===============================
+   Job Description, Gallery & Video
+================================ -->
+<section class="job-info">
+  <div class="job-info-content">
+    <h3>Why Choose EuroVantage?</h3>
+    <p>
+      EuroVantage is your trusted partner for European job placement. We connect skilled professionals
+      with verified employers and provide complete travel and visa support. Work confidently and travel
+      in style while exploring exciting career opportunities across Europe.
+    </p>
+
+    <!-- Image Slideshow -->
+    <div class="slideshow-container">
+      <div class="slide fade"><img src="https://media.istockphoto.com/id/2150678874/photo/young-woman-boarding-an-airplane.jpg?s=612x612&w=0&k=20&c=z6ITYmSyNg2Tje2ZzaOk3o_aAsKT-hfz9JHSwGHW3J8=" alt="Travel Image 1"></div>
+      <div class="slide fade"><img src="https://img.freepik.com/free-photo/medium-shot-smiley-couple-with-documents_23-2149272139.jpg?semt=ais_hybrid&w=740&q=80" alt="Travel Image 2"></div>
+      <div class="slide fade"><img src="https://media.istockphoto.com/id/1264246753/photo/ready-for-vacasion-excited-black-spouses-posing-near-airport-with-passports.jpg?s=612x612&w=0&k=20&c=_hFNcvH7snmw2EutkHXyFCrCL8sOg4XaaSxmnQ4PymU=" alt="Travel Image 3"></div>
+
+      <!-- Next/Prev Buttons -->
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+
+    <!-- Video Section -->
+    <div class="video-container">
+      <h4>Experience Life as a Traveler</h4>
+      <video controls autoplay muted loop>
+        <source src="https://youtube.com/shorts/PKK58ypgvOE?si=zB38wB7g5lWPu2A9" type="video/mp4">
+        Your browser does not support HTML5 video.
+      </video>
+    </div>
   </div>
 </section>
 
-<a href="https://wa.me/233593231752" class="whatsapp-float" target="_blank">
-  <img src="https://i.postimg.cc/65WYv75p/1000164566_removebg_preview.png" alt="Customer Care" />
-</a>
+<section class="testimonials">
+  <h3>What Our Clients Say</h3>
+
+  <div class="testimonial-grid" id="testimonialGrid"></div>
+
+  <button class="see-more-btn" id="seeMoreBtn" onclick="toggleTestimonials()">
+    See more
+  </button>
+</section>
 
 <!-- Floating Customer Care Button -->
 <div class="care-float" onclick="toggleAgents()">
@@ -608,67 +703,251 @@ footer {
   </a>
 </div>
 
-<footer>
-  © <script>document.write(new Date().getFullYear())</script> EuroVantage — Accra, Ghana. All rights reserved.
+<footer class="footer-style3">
+  <div class="footer-main">
+    <div class="footer-left">
+      <p>© <span id="year3"></span> EuroVantage. All rights reserved.</p>
+      <p>Supported by: <span>Work Abroad Foundation, Global Skills Org</span></p>
+    </div>
+    <div class="footer-right">
+      <a href="https://facebook.com/EuroVantage" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" class="social-icon">
+      </a>
+      <a href="https://wa.me/233593231752" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" class="social-icon">
+      </a>
+    </div>
+  </div>
 </footer>
 
-<script>
-const agents = [
-  {
-    name: "Anna",
-    img: "https://i.postimg.cc/90yXHWNk/1000164571_removebg_preview.png"
-  },
-  {
-    name: "Michael",
-    img: "https://i.postimg.cc/65WYv75p/1000164566_removebg_preview.png"
-  },
-  {
-    name: "Sophia",
-    img: "https://i.postimg.cc/PqRH8skK/1000164254-removebg-preview.png"
+<script type="module">
+  // ===============================
+  // FIREBASE VISITOR TRACKING & LIVE NOTIFICATIONS
+  // ===============================
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+  import { getFirestore, doc, setDoc, increment, onSnapshot } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyB5zWUvl64s6wAjjeXd0mCUyhMEdzg_MmM",
+    authDomain: "usahackersland.firebaseapp.com",
+    projectId: "usahackersland",
+    storageBucket: "usahackersland.appspot.com"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  (async function() {
+  if (!sessionStorage.getItem("visited")) {
+    sessionStorage.setItem("visited", "yes");
+    await setDoc(doc(db, "stats", "visits"), { total: increment(1) }, { merge: true });
   }
+
+  onSnapshot(doc(db, "stats", "notifications"), (docSnap) => {
+    const count = docSnap.exists() ? docSnap.data().total : 0;
+    const notifBadge = document.getElementById("notifCount");
+    if (notifBadge) notifBadge.textContent = count;
+  });
+  })();
+</script>  
+
+<script>
+/* ===============================
+   FOOTER YEAR
+================================ */
+document.getElementById("year3").textContent = new Date().getFullYear();
+
+/* ===============================
+   AGENT IMAGE ROTATOR
+================================ */
+const agents = [
+  { name: "Anna", img: "https://i.postimg.cc/90yXHWNk/1000164571_removebg_preview.png" },
+  { name: "Michael", img: "https://i.postimg.cc/65WYv75p/1000164566_removebg_preview.png" },
+  { name: "Sophia", img: "https://i.postimg.cc/PqRH8skK/1000164254-removebg-preview.png" }
 ];
 
 let currentAgent = 0;
-
-// Rotate customer care image & name
 setInterval(() => {
   currentAgent = (currentAgent + 1) % agents.length;
+  const img = document.getElementById("agentImg");
+  if (img) img.src = agents[currentAgent].img;
+}, 3000);
 
-  const imgEl = document.getElementById("agentImg");
-  const nameEl = document.getElementById("agentName");
-
-  if (imgEl) imgEl.src = agents[currentAgent].img;
-  if (nameEl) nameEl.textContent = agents[currentAgent].name;
-
-}, 3000); // change every 3 seconds
-
-// Toggle agent popup list
+/* ===============================
+   AGENT LIST TOGGLE
+================================ */
 function toggleAgents() {
   const list = document.getElementById("agentList");
   if (!list) return;
-
-  list.style.display =
-    list.style.display === "block" ? "none" : "block";
+  list.style.display = list.style.display === "block" ? "none" : "block";
 }
 
-// Optional modal functions (safe to keep)
+/* ===============================
+   CLOSE AGENT LIST WHEN CLICK OUTSIDE
+================================ */
+document.addEventListener("click", (e) => {
+  const list = document.getElementById("agentList");
+  const button = document.querySelector(".care-float");
+  if (!list || !button) return;
+
+  if (!list.contains(e.target) && !button.contains(e.target)) {
+    list.style.display = "none";
+  }
+});
+
+/* ===============================
+   MODAL OPEN / CLOSE
+================================ */
 function openModal(title, img) {
-  document.getElementById('modalTitle').innerText = title;
-  document.getElementById('modalText').innerText = title;
-  document.getElementById('jobRole').value = title;
-  document.getElementById('modalImage').src = img;
-  document.getElementById('jobModal').style.display = 'flex';
+  document.getElementById("modalTitle").innerText = title;
+  document.getElementById("modalText").innerText = title;
+  document.getElementById("jobRole").value = title;
+  document.getElementById("modalImage").src = img;
+  document.getElementById("jobModal").style.display = "flex";
 }
 
 function closeModal() {
-  document.getElementById('jobModal').style.display = 'none';
+  document.getElementById("jobModal").style.display = "none";
 }
 
-window.onclick = function(event) {
-  const modal = document.getElementById('jobModal');
-  if (event.target === modal) closeModal();
+/* Close modal on background click */
+document.getElementById("jobModal").addEventListener("click", function (e) {
+  if (e.target === this) closeModal();
+});
+
+/* ===============================
+   SLIDESHOW
+================================ */
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
 }
+
+function showSlides(n) {
+  const slides = document.getElementsByClassName("slide");
+  if (!slides.length) return;
+
+  if (n > slides.length) slideIndex = 1;
+  if (n < 1) slideIndex = slides.length;
+
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slides[slideIndex - 1].style.display = "block";
+}
+
+/* Auto slide */
+setInterval(() => plusSlides(1), 5000);
+
+/* ===============================
+   FAKE SOCIAL PROOF COUNTER
+================================ */
+let fakeCount = sessionStorage.getItem("fakeCount")
+  ? parseInt(sessionStorage.getItem("fakeCount"))
+  : Math.floor(420 + Math.random() * 300);
+
+const heroBtn = document.querySelector(".hero button");
+const counterEl = document.createElement("div");
+counterEl.style.marginTop = "14px";
+counterEl.style.fontSize = "18px";
+counterEl.style.fontWeight = "600";
+counterEl.style.color = "#fff";
+counterEl.textContent = `${fakeCount}+ people have already applied today`;
+heroBtn.insertAdjacentElement("afterend", counterEl);
+
+setInterval(() => {
+  fakeCount++;
+  sessionStorage.setItem("fakeCount", fakeCount);
+  counterEl.textContent = `${fakeCount}+ people have already applied today`;
+}, 9000);
+
+/* ===============================
+   JOB CARD CLICK → MODAL
+================================ */
+document.querySelectorAll(".job-card").forEach(card => {
+  card.addEventListener("click", e => {
+    e.preventDefault();
+    const title = card.querySelector("p").innerText;
+    const img = card.querySelector("img").src;
+    openModal(title, img);
+  });
+});
 </script>
 
+<script>
+const peopleCount = 120;
+const showLimit = 6;
+
+const countries = [
+  "🇺🇸","🇬🇧","🇩🇪","🇫🇷","🇪🇸",
+  "🇮🇹","🇨🇦","🇳🇱","🇸🇪","🇳🇴","🇦🇺"
+];
+
+const comments = [
+  "The application process was smooth and very professional.",
+  "EuroVantage guided me clearly from start to finish. I felt confident throughout the entire process.",
+  "Very transparent and well-organized service with timely updates.",
+  "The team was professional, responsive, and supportive.",
+  "Everything was explained clearly and handled with care.",
+  "From document review to job placement, the process was stress-free.",
+  "Excellent communication and genuine support throughout.",
+  "Professional service with honest guidance and clear timelines.",
+  "EuroVantage made working abroad feel safe and achievable.",
+  "I appreciated the attention to detail and follow-ups."
+];
+
+// shuffle comments once
+comments.sort(() => Math.random() - 0.5);
+
+const grid = document.getElementById("testimonialGrid");
+
+for (let i = 0; i < peopleCount; i++) {
+  const card = document.createElement("div");
+  card.className = "testimonial";
+  card.style.display = i < showLimit ? "block" : "none";
+
+  card.innerHTML = `
+    <img src="https://randomuser.me/api/portraits/${i % 2 ? "women" : "men"}/${i % 99}.jpg">
+    <p>${comments[i % comments.length]}</p>
+    <h4>${generateName()} ${countries[i % countries.length]}</h4>
+  `;
+
+  grid.appendChild(card);
+}
+
+let expanded = false;
+
+function toggleTestimonials() {
+  expanded = !expanded;
+  document.querySelectorAll(".testimonial").forEach((card, i) => {
+    card.style.display = expanded || i < showLimit ? "block" : "none";
+  });
+  document.getElementById("seeMoreBtn").innerText =
+    expanded ? "See less" : "See more";
+}
+
+function generateName() {
+  const first = ["Anna","Elena","Michael","Lucas","Sophia","Daniel","Laura","Emma","Noah","Liam"];
+  const last = ["Meyer","Brown","Rossi","Garcia","Schmidt","Dubois","Taylor","Andersson"];
+  return first[Math.floor(Math.random()*first.length)] + " " +
+         last[Math.floor(Math.random()*last.length)];
+}
+</script>
+<script>
+function toggleTestimonials() {
+  const grid = document.querySelector(".testimonial-grid");
+  const btn = document.querySelector(".see-more-btn");
+
+  grid.classList.toggle("expanded");
+
+  if (grid.classList.contains("expanded")) {
+    btn.textContent = "See Less";
+  } else {
+    btn.textContent = "See More";
+  }
+}
+</script>
 </body>
 </html>
