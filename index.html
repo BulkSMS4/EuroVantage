@@ -9,6 +9,22 @@
 <meta name="title" content="EuroVantage — Advance with Confidence. Arrive in Style.">
 <meta name="description" content="EuroVantage connects skilled professionals with verified European work and travel opportunities. Advance your career with confidence and arrive in style.">
 <meta name="keywords" content="EuroVantage, European jobs, work abroad, visa support, travel agency, Ghana jobs, recruitment Europe, job placement, overseas work">
+<!-- ✅ Structured Data for SEO (Image + Brand) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EuroVantage",
+  "url": "https://www.eurovantage.com/",
+  "logo": "https://www.eurovantage.com/images/eurovantage-logo.png",
+  "image": "https://www.eurovantage.com/images/eurovantage-hero.jpg",
+  "description": "EuroVantage connects skilled professionals with verified European work and travel opportunities.",
+  "sameAs": [
+    "https://www.facebook.com/eurovantage",
+    "https://www.instagram.com/eurovantage"
+  ]
+}
+</script>
 
 <!-- ✅ Open Graph -->
 <meta property="og:type" content="website">
@@ -613,6 +629,48 @@ header h1 {
 </section>
 
 <!-- ===============================
+   PUSH NOTIFICATION PROMPT
+================================ -->
+<div id="pushPrompt" style="
+  position:fixed;
+  bottom:20px;
+  left:20px;
+  background:#111;
+  color:#fff;
+  padding:16px 18px;
+  border-radius:12px;
+  box-shadow:0 10px 30px rgba(0,0,0,.4);
+  z-index:2000;
+  max-width:320px;
+  display:none;
+">
+  <strong style="color:#d4af37">🔔 Stay Updated</strong>
+  <p style="font-size:14px;margin:8px 0">
+    Enable notifications to receive new job alerts and updates instantly.
+  </p>
+  <div style="display:flex;gap:10px">
+    <button onclick="enableNotifications()" style="
+      flex:1;
+      background:#d4af37;
+      border:none;
+      padding:8px;
+      font-weight:600;
+      border-radius:6px;
+      cursor:pointer;
+    ">Enable</button>
+    <button onclick="closePushPrompt()" style="
+      flex:1;
+      background:#333;
+      color:#fff;
+      border:none;
+      padding:8px;
+      border-radius:6px;
+      cursor:pointer;
+    ">Later</button>
+  </div>
+</div>
+
+<!-- ===============================
    Job Description, Gallery & Video
 ================================ -->
 <section class="job-info">
@@ -899,19 +957,94 @@ function generateName() {
 }
 </script>
 
+<!-- ===============================
+   PUSH NOTIFICATION PROMPT
+================================ -->
+<div id="pushPrompt" style="
+  position:fixed;
+  bottom:20px;
+  left:20px;
+  background:#111;
+  color:#fff;
+  padding:16px 18px;
+  border-radius:12px;
+  box-shadow:0 10px 30px rgba(0,0,0,.4);
+  z-index:2000;
+  max-width:320px;
+  display:none;
+">
+  <strong style="color:#d4af37">🔔 Stay Updated</strong>
+  <p style="font-size:14px;margin:8px 0">
+    Enable notifications to receive new job alerts and updates instantly.
+  </p>
+  <div style="display:flex;gap:10px">
+    <button onclick="enableNotifications()" style="
+      flex:1;
+      background:#d4af37;
+      border:none;
+      padding:8px;
+      font-weight:600;
+      border-radius:6px;
+      cursor:pointer;
+    ">Enable</button>
+    <button onclick="closePushPrompt()" style="
+      flex:1;
+      background:#333;
+      color:#fff;
+      border:none;
+      padding:8px;
+      border-radius:6px;
+      cursor:pointer;
+    ">Later</button>
+  </div>
+</div>
+
 <script>
-function toggleTestimonials() {
-  const grid = document.querySelector(".testimonial-grid");
-  const btn = document.querySelector(".see-more-btn");
+// ===============================
+// PUSH NOTIFICATION PROMPT (Delay 10 minutes)
+// ===============================
+function showPushPrompt() {
+  const prompt = document.getElementById("pushPrompt");
+  if (!prompt) return;
 
-  grid.classList.toggle("expanded");
-
-  if (grid.classList.contains("expanded")) {
-    btn.textContent = "See Less";
-  } else {
-    btn.textContent = "See More";
+  // Only show if notifications are not already granted
+  if (Notification.permission !== "granted") {
+    prompt.style.display = "block";
   }
 }
+
+function enableNotifications() {
+  Notification.requestPermission().then(permission => {
+    if (permission === "granted") {
+      new Notification("✅ Notifications Enabled!", {
+        body: "You'll now receive updates on new job openings.",
+        icon: "https://www.eurovantage.com/images/eurovantage-hero.jpg"
+      });
+    }
+    closePushPrompt();
+  });
+}
+
+function closePushPrompt() {
+  const prompt = document.getElementById("pushPrompt");
+  if (prompt) prompt.style.display = "none";
+}
+
+// Show push prompt after 10 minutes (600000 ms)
+setTimeout(showPushPrompt, 600000);
+
+// ===============================
+// AUTO NOTIFICATIONS (if already granted)
+// ===============================
+if ("Notification" in window && Notification.permission === "granted") {
+  setInterval(() => {
+    new Notification("💼 New European Jobs Available", {
+      body: "Check the latest verified job openings on EuroVantage.",
+      icon: "https://www.eurovantage.com/images/eurovantage-hero.jpg"
+    });
+  }, 1000 * 60 * 60 * 6); // every 6 hours
+}
+</script>
 
 <script>
   // Only run modal JS if we are on the homepage
