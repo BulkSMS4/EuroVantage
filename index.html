@@ -913,17 +913,18 @@ function toggleTestimonials() {
   }
 }
 
-// Only run modal JS if we are on the main jobs page
-if (window.location.pathname === "/" || window.location.pathname.endsWith("index.html")) {
-  document.querySelectorAll(".job-card").forEach(card => {
-    card.addEventListener("click", e => {
-      e.preventDefault();
-      const title = card.querySelector("p").innerText;
-      const img = card.querySelector("img").src;
-      openModal(title, img);
+<script>
+  // Only run modal JS if we are on the homepage
+  if (window.location.pathname === "/" || window.location.pathname.endsWith("index.html")) {
+    document.querySelectorAll(".job-card").forEach(card => {
+      card.addEventListener("click", e => {
+        const title = card.querySelector("p").innerText;
+        const img = card.querySelector("img").src;
+        openModal(title, img);
+        e.preventDefault(); // Prevent page navigation ONLY on homepage
+      });
     });
-  });
-}
+  }
 </script>
 </body>
 </html>
