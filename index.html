@@ -432,9 +432,9 @@ header h1 {
   margin-bottom: 15px;
 }
 
-.video-container video {
+.video-container iframe {
   width: 100%;
-  height: auto;
+  height: 450px;
   border-radius: 12px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.4);
 }
@@ -532,6 +532,12 @@ header h1 {
 .testimonial-grid.expanded {
   max-height: none;
 }
+
+.footer-social-left {
+  display: flex;
+  gap: 14px;       /* Space between icons */
+  margin-bottom: 10px; /* Space below icons before text */
+}
 </style>
 </head>
 <body>
@@ -544,7 +550,7 @@ header h1 {
       <a href="#">Home</a>
       <a href="#jobs">Jobs</a>
       <a href="#">About</a>
-      <a href="#">Contact</a>
+      <a href="#contact">Contact</a>
     </nav>
   </div>
 </header>
@@ -606,36 +612,6 @@ header h1 {
   </div>
 </section>
 
-<!-- Modal -->
-<div id="jobModal" class="modal">
-  <div class="modal-content">
-    <span class="close-btn" onclick="closeModal()">&times;</span>
-    <img id="modalImage" src="" alt="Job Image">
-    <h2 id="modalTitle"></h2>
-    <p>Apply now to join our verified European job program for <span id="modalText"></span>. We’ll handle all travel and visa assistance for you.</p>
-    
-    <form action="https://formsubmit.co/eurovantage@gmail.com" method="POST" enctype="multipart/form-data" target="_blank">
-      <input type="hidden" name="Job Role" id="jobRole" value="">
-      
-      <input type="text" name="Full Name" placeholder="Full Name" required style="width:100%;padding:10px;margin:6px 0;">
-      
-      <input type="tel" name="Phone" placeholder="Phone Number" required style="width:100%;padding:10px;margin:6px 0;">
-      
-      <input type="email" name="Email" placeholder="Email Address" required style="width:100%;padding:10px;margin:6px 0;">
-      
-      <input type="file" name="CV" accept=".pdf,.doc,.docx" required style="width:100%;padding:10px;margin:6px 0;">
-      
-      <!-- Optional FormSubmit settings -->
-      <input type="hidden" name="_subject" value="New Job Application - EuroVantage">
-      <input type="hidden" name="_captcha" value="false">
-      
-      <button type="submit" style="background:var(--gold);border:none;padding:12px 20px;border-radius:6px;cursor:pointer;width:100%;margin-top:10px;">
-        Apply for this Job
-      </button>
-    </form>
-  </div>
-</div>
-
 <!-- ===============================
    Job Description, Gallery & Video
 ================================ -->
@@ -659,15 +635,21 @@ header h1 {
       <a class="next" onclick="plusSlides(1)">&#10095;</a>
     </div>
 
-    <!-- Video Section -->
-    <div class="video-container">
-      <h4>Experience Life as a Traveler</h4>
-      <video controls autoplay muted loop>
-        <source src="https://youtube.com/shorts/PKK58ypgvOE?si=zB38wB7g5lWPu2A9" type="video/mp4">
-        Your browser does not support HTML5 video.
-      </video>
-    </div>
-  </div>
+ <!-- Video Section -->
+<div class="video-container">
+  <h4>Experience Life as a Traveler</h4>
+
+  <iframe
+    src="https://www.youtube.com/embed/PKK58ypgvOE?autoplay=1&mute=1&loop=1&playlist=PKK58ypgvOE"
+    width="100%"
+    height="450"
+    title="EuroVantage Travel Experience"
+    frameborder="0"
+    allow="autoplay; encrypted-media; picture-in-picture; accelerometer; gyroscope"
+    allowfullscreen
+    style="border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.4);">
+  </iframe>
+</div>
 </section>
 
 <section class="testimonials">
@@ -703,20 +685,20 @@ header h1 {
   </a>
 </div>
 
-<footer class="footer-style3">
+<!-- Job Modal -->
+<div class="modal" id="jobModal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <img id="modalImage" src="" alt="Job Image">
+    <h3 id="modalTitle"></h3>
+    <p id="modalText"></p>
+    <input type="hidden" id="jobRole">
+  </div>
+</div>
+
+      <footer class="footer-style3">
   <div class="footer-main">
-    <div class="footer-left">
-      <p>© <span id="year3"></span> EuroVantage. All rights reserved.</p>
-      <p>Supported by: <span>Work Abroad Foundation, Global Skills Org</span></p>
-    </div>
-    <div class="footer-right">
-      <a href="https://facebook.com/EuroVantage" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" class="social-icon">
-      </a>
-      <a href="https://wa.me/233593231752" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" class="social-icon">
-      </a>
-    </div>
+    <p>© <span id="year3"></span> EuroVantage. All rights reserved.</p>
   </div>
 </footer>
 
@@ -811,9 +793,12 @@ function closeModal() {
 }
 
 /* Close modal on background click */
-document.getElementById("jobModal").addEventListener("click", function (e) {
-  if (e.target === this) closeModal();
-});
+const jobModal = document.getElementById("jobModal");
+if (jobModal) {
+  jobModal.addEventListener("click", function (e) {
+    if (e.target === this) closeModal();
+  });
+}
 
 /* ===============================
    SLIDESHOW
@@ -854,29 +839,18 @@ counterEl.style.marginTop = "14px";
 counterEl.style.fontSize = "18px";
 counterEl.style.fontWeight = "600";
 counterEl.style.color = "#fff";
-counterEl.textContent = `${fakeCount}+ people have already applied today`;
+counterEl.textContent = `${fakeCount}+ people who have already applied`;
 heroBtn.insertAdjacentElement("afterend", counterEl);
 
 setInterval(() => {
   fakeCount++;
   sessionStorage.setItem("fakeCount", fakeCount);
-  counterEl.textContent = `${fakeCount}+ people have already applied today`;
+  counterEl.textContent = `${fakeCount}+ people who have already applied`;
 }, 9000);
 
 /* ===============================
-   JOB CARD CLICK → MODAL
+   TESTIMONIALS GRID
 ================================ */
-document.querySelectorAll(".job-card").forEach(card => {
-  card.addEventListener("click", e => {
-    e.preventDefault();
-    const title = card.querySelector("p").innerText;
-    const img = card.querySelector("img").src;
-    openModal(title, img);
-  });
-});
-</script>
-
-<script>
 const peopleCount = 120;
 const showLimit = 6;
 
@@ -917,17 +891,6 @@ for (let i = 0; i < peopleCount; i++) {
   grid.appendChild(card);
 }
 
-let expanded = false;
-
-function toggleTestimonials() {
-  expanded = !expanded;
-  document.querySelectorAll(".testimonial").forEach((card, i) => {
-    card.style.display = expanded || i < showLimit ? "block" : "none";
-  });
-  document.getElementById("seeMoreBtn").innerText =
-    expanded ? "See less" : "See more";
-}
-
 function generateName() {
   const first = ["Anna","Elena","Michael","Lucas","Sophia","Daniel","Laura","Emma","Noah","Liam"];
   const last = ["Meyer","Brown","Rossi","Garcia","Schmidt","Dubois","Taylor","Andersson"];
@@ -935,6 +898,7 @@ function generateName() {
          last[Math.floor(Math.random()*last.length)];
 }
 </script>
+
 <script>
 function toggleTestimonials() {
   const grid = document.querySelector(".testimonial-grid");
@@ -947,6 +911,18 @@ function toggleTestimonials() {
   } else {
     btn.textContent = "See More";
   }
+}
+
+// Only run modal JS if we are on the main jobs page
+if (window.location.pathname === "/" || window.location.pathname.endsWith("index.html")) {
+  document.querySelectorAll(".job-card").forEach(card => {
+    card.addEventListener("click", e => {
+      e.preventDefault();
+      const title = card.querySelector("p").innerText;
+      const img = card.querySelector("img").src;
+      openModal(title, img);
+    });
+  });
 }
 </script>
 </body>
