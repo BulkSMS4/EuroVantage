@@ -16,7 +16,7 @@
   "@type": "Organization",
   "name": "EuroVantage",
   "url": "https://www.eurovantage.com/",
-  "logo": "https://www.eurovantage.com/images/eurovantage-logo.png",
+  "logo": "https://i.postimg.cc/sDTwDrJS/file-00000000b6d471f8b68cb9c69408ef3e.png",
   "image": "https://www.eurovantage.com/images/eurovantage-hero.jpg",
   "description": "EuroVantage connects skilled professionals with verified European work and travel opportunities.",
   "sameAs": [
@@ -31,7 +31,7 @@
 <meta property="og:url" content="https://www.eurovantage.com/">
 <meta property="og:title" content="EuroVantage — Advance with Confidence. Arrive in Style.">
 <meta property="og:description" content="Your trusted pathway to verified European jobs and visa support. Start your international career today.">
-<meta property="og:image" content="https://www.eurovantage.com/images/eurovantage-hero.jpg">
+<meta property="og:image" content="https://i.postimg.cc/sDTwDrJS/file-00000000b6d471f8b68cb9c69408ef3e.png">
 
 <!-- ✅ Twitter -->
 <meta property="twitter:card" content="summary_large_image">
@@ -61,44 +61,6 @@ nav a {
   font-weight: 500;
 }
 nav a:hover { color: var(--gold); }
-
-/* Hero */
-.hero {
-  background: url("https://i.pinimg.com/736x/74/5b/90/745b90e058ea868b4ff2a87c7b76b11f.jpg") center/cover no-repeat;
-  color: var(--text-light);
-  text-align: center;
-  padding: 150px 20px;
-  position: relative;
-}
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.55);
-}
-.hero-content {
-  position: relative;
-  z-index: 2;
-}
-.hero h2 {
-  font-size: 48px;
-  color: var(--gold);
-  margin-bottom: 10px;
-}
-.hero p { font-size: 18px; }
-.hero button {
-  background: var(--gold);
-  border: none;
-  color: #000;
-  padding: 14px 32px;
-  margin-top: 25px;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-}
-.hero button:hover {
-  background: #c7a130;
-}
 
 /* Team Section */
 .team {
@@ -177,63 +139,6 @@ nav a:hover { color: var(--gold); }
   object-fit: cover;
   border-radius: 12px;
   margin-bottom: 10px;
-}
-
-/* Modal Popup */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 999;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.8);
-  justify-content: center;
-  align-items: center;
-}
-.modal-content {
-  background: #fff;
-  color: #000;
-  padding: 30px;
-  border-radius: 12px;
-  width: 90%;
-  max-width: 400px;
-  text-align: center;
-  position: relative;
-}
-.modal-content img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 15px;
-}
-.close-btn {
-  position: absolute;
-  right: 15px; top: 10px;
-  font-size: 22px;
-  cursor: pointer;
-}
-
-.testimonial {
-  background: #101010;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(212,175,55,0.1);
-}
-.testimonial img {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  border: 2px solid var(--gold);
-  margin-bottom: 10px;
-}
-.testimonial p {
-  font-size: 15px;
-  line-height: 1.5;
-}
-.testimonial h4 {
-  margin-top: 10px;
-  color: var(--gold);
 }
 
 footer {
@@ -554,13 +459,71 @@ header h1 {
   gap: 14px;       /* Space between icons */
   margin-bottom: 10px; /* Space below icons before text */
 }
+
+.hero {
+  height: 43vh;
+  background: url("https://i.postimg.cc/2y9bgmsX/file-000000003a4071f589514f7a31460156-(1).png")
+    center/cover no-repeat;
+}
+
+
+.hero-text {
+  text-align: center;
+  padding: 70px 20px;
+  background: #050505;
+}
+
+.hero-text h2 {
+  font-size: 42px;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+
+.hero-text p {
+  font-size: 18px;
+  max-width: 700px;
+  margin: 0 auto 28px;
+  color: #ddd;
+}
+
+.hero-text button {
+  background: var(--gold);
+  border: none;
+  color: #000;
+  padding: 14px 34px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.hero-text button:hover {
+  background: #c7a130;
+}
+
+.apply-count {
+  margin-top: 16px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #fff;
+}
+
+@media (max-width: 43px) {
+  .hero {
+    height: 50vh;
+    background-position: center top;
+  }
+}
 </style>
 </head>
 <body>
 
 <header>
   <div class="logo-wrap">
-    <h1>✨ EuroVantage</h1>
+  <img src="https://i.postimg.cc/sDTwDrJS/file-00000000b6d471f8b68cb9c69408ef3e.png" 
+       alt="EuroVantage Logo" 
+       width="190" height="90" 
+       style="display:block;">
+</div>
 
     <nav class="sub-nav">
       <a href="#">Home</a>
@@ -571,12 +534,11 @@ header h1 {
   </div>
 </header>
 
-<section class="hero">
-  <div class="hero-content">
-    <h2>Advance with Confidence.<br>Arrive in Style.</h2>
-    <p>Your luxury pathway to verified European work and travel opportunities.</p>
-    <button>Apply for Your Job</button>
-  </div>
+<section class="hero"></section>
+<section class="hero-text">
+  <h2>Advance with Confidence.<br>Arrive in Style.</h2>
+  <p>Your luxury pathway to verified European work and travel opportunities.</p>
+  <button>Apply for Your Job</butto  n>
 </section>
 
 <section class="team">
@@ -627,48 +589,6 @@ header h1 {
 
   </div>
 </section>
-
-<!-- ===============================
-   PUSH NOTIFICATION PROMPT
-================================ -->
-<div id="pushPrompt" style="
-  position:fixed;
-  bottom:20px;
-  left:20px;
-  background:#111;
-  color:#fff;
-  padding:16px 18px;
-  border-radius:12px;
-  box-shadow:0 10px 30px rgba(0,0,0,.4);
-  z-index:2000;
-  max-width:320px;
-  display:none;
-">
-  <strong style="color:#d4af37">🔔 Stay Updated</strong>
-  <p style="font-size:14px;margin:8px 0">
-    Enable notifications to receive new job alerts and updates instantly.
-  </p>
-  <div style="display:flex;gap:10px">
-    <button onclick="enableNotifications()" style="
-      flex:1;
-      background:#d4af37;
-      border:none;
-      padding:8px;
-      font-weight:600;
-      border-radius:6px;
-      cursor:pointer;
-    ">Enable</button>
-    <button onclick="closePushPrompt()" style="
-      flex:1;
-      background:#333;
-      color:#fff;
-      border:none;
-      padding:8px;
-      border-radius:6px;
-      cursor:pointer;
-    ">❌</button>
-  </div>
-</div>
 
 <!-- ===============================
    Job Description, Gallery & Video
@@ -741,17 +661,6 @@ header h1 {
     <img src="https://i.postimg.cc/PqRH8skK/1000164254-removebg-preview.png">
     <span>Sophia Help Desk</span>
   </a>
-</div>
-
-<!-- Job Modal -->
-<div class="modal" id="jobModal">
-  <div class="modal-content">
-    <span class="close-btn" onclick="closeModal()">&times;</span>
-    <img id="modalImage" src="" alt="Job Image">
-    <h3 id="modalTitle"></h3>
-    <p id="modalText"></p>
-    <input type="hidden" id="jobRole">
-  </div>
 </div>
 
       <footer class="footer-style3">
@@ -836,29 +745,6 @@ document.addEventListener("click", (e) => {
 });
 
 /* ===============================
-   MODAL OPEN / CLOSE
-================================ */
-function openModal(title, img) {
-  document.getElementById("modalTitle").innerText = title;
-  document.getElementById("modalText").innerText = title;
-  document.getElementById("jobRole").value = title;
-  document.getElementById("modalImage").src = img;
-  document.getElementById("jobModal").style.display = "flex";
-}
-
-function closeModal() {
-  document.getElementById("jobModal").style.display = "none";
-}
-
-/* Close modal on background click */
-const jobModal = document.getElementById("jobModal");
-if (jobModal) {
-  jobModal.addEventListener("click", function (e) {
-    if (e.target === this) closeModal();
-  });
-}
-
-/* ===============================
    SLIDESHOW
 ================================ */
 let slideIndex = 1;
@@ -891,7 +777,7 @@ let fakeCount = sessionStorage.getItem("fakeCount")
   ? parseInt(sessionStorage.getItem("fakeCount"))
   : Math.floor(420 + Math.random() * 300);
 
-const heroBtn = document.querySelector(".hero button");
+const heroBtn = document.querySelector(".hero-text button");
 const counterEl = document.createElement("div");
 counterEl.style.marginTop = "14px";
 counterEl.style.fontSize = "18px";
@@ -957,6 +843,20 @@ function generateName() {
 }
 </script>
 
+<script>
+function toggleTestimonials() {
+  const grid = document.getElementById('testimonialGrid');
+  if (!grid) return;
+
+  grid.classList.toggle('expanded');
+
+  const btn = document.getElementById('seeMoreBtn');
+  if (btn) {
+    btn.textContent = grid.classList.contains('expanded') ? 'See less' : 'See more';
+  }
+}
+</script>
+
 <!-- ===============================
    PUSH NOTIFICATION PROMPT
 ================================ -->
@@ -998,17 +898,12 @@ function generateName() {
     ">Later</button>
   </div>
 </div>
-
 <script>
-// ===============================
-// PUSH NOTIFICATION PROMPT (Delay 10 minutes)
-// ===============================
 function showPushPrompt() {
   const prompt = document.getElementById("pushPrompt");
   if (!prompt) return;
 
-  // Only show if notifications are not already granted
-  if (Notification.permission !== "granted") {
+  if ("Notification" in window && Notification.permission !== "granted") {
     prompt.style.display = "block";
   }
 }
@@ -1030,34 +925,18 @@ function closePushPrompt() {
   if (prompt) prompt.style.display = "none";
 }
 
-// Show push prompt after 10 minutes (600000 ms)
+// Show after 10 minutes
 setTimeout(showPushPrompt, 600000);
 
-// ===============================
-// AUTO NOTIFICATIONS (if already granted)
-// ===============================
+// Auto notifications if already allowed
 if ("Notification" in window && Notification.permission === "granted") {
   setInterval(() => {
     new Notification("💼 New European Jobs Available", {
       body: "Check the latest verified job openings on EuroVantage.",
       icon: "https://www.eurovantage.com/images/eurovantage-hero.jpg"
     });
-  }, 1000 * 60 * 60 * 6); // every 6 hours
+  }, 1000 * 60 * 60 * 6);
 }
-</script>
-
-<script>
-  // Only run modal JS if we are on the homepage
-  if (window.location.pathname === "/" || window.location.pathname.endsWith("index.html")) {
-    document.querySelectorAll("jobs.html").forEach(card => {
-      card.addEventListener("click", e => {
-        const title = card.querySelector("p").innerText;
-        const img = card.querySelector("img").src;
-        openModal(title, img);
-        e.preventDefault(); // Prevent page navigation ONLY on homepage
-      });
-    });
-  }
 </script>
 </body>
 </html>
