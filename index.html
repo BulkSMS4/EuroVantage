@@ -666,7 +666,7 @@ header h1 {
       padding:8px;
       border-radius:6px;
       cursor:pointer;
-    ">Later</button>
+    ">❌</button>
   </div>
 </div>
 
@@ -1049,7 +1049,7 @@ if ("Notification" in window && Notification.permission === "granted") {
 <script>
   // Only run modal JS if we are on the homepage
   if (window.location.pathname === "/" || window.location.pathname.endsWith("index.html")) {
-    document.querySelectorAll(".job-card").forEach(card => {
+    document.querySelectorAll("jobs.html").forEach(card => {
       card.addEventListener("click", e => {
         const title = card.querySelector("p").innerText;
         const img = card.querySelector("img").src;
