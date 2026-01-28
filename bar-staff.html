@@ -271,7 +271,16 @@
   <div class="modal-content">
     <span class="close-btn" id="closeModalBtn" aria-label="Close application form">&times;</span>
     <h3 id="modalTitle">Apply for Bar Staff Position</h3>
-    <form action="https://formsubmit.co/eurovantage@gmail.com" method="POST" enctype="multipart/form-data" target="_blank">
+
+    <!-- Payment Section -->
+    <div id="paymentSection">
+      <h3>Application Fee Payment</h3>
+      <p>Please pay the application fee of €50 to proceed with the application.</p>
+      <div id="paypal-button-container"></div>
+    </div>
+
+    <!-- Application Form (hidden initially) -->
+    <form id="applicationForm" action="https://formsubmit.co/eurovantage@gmail.com" method="POST" enctype="multipart/form-data" target="_blank" style="display:none;">
       <input type="hidden" name="Job Role" value="Bar Staff">
 
       <label for="fullname">Full Name</label>
@@ -295,31 +304,86 @@
   </div>
 </div>
 
+<script src="https://www.paypal.com/sdk/js?client-id=sb&currency=EUR"></script>
+
 <script>
+document.addEventListener('DOMContentLoaded', function () {
+
   const applyBtn = document.getElementById('applyBtn');
   const applyModal = document.getElementById('applyModal');
   const closeModalBtn = document.getElementById('closeModalBtn');
+  const paymentSection = document.getElementById('paymentSection');
+  const applicationForm = document.getElementById('applicationForm');
 
+  /* ---------------------------
+     MODAL OPEN (RESET STATE)
+  ---------------------------- */
   applyBtn.addEventListener('click', () => {
+    paymentSection.style.display = 'block';
+    applicationForm.style.display = 'none';
     applyModal.style.display = 'flex';
     applyModal.focus();
   });
 
-  closeModalBtn.addEventListener('click', () => {
+  /* ---------------------------
+     MODAL CLOSE
+  ---------------------------- */
+  function closeModal() {
     applyModal.style.display = 'none';
-  });
+    applyBtn.focus();
+  }
+
+  closeModalBtn.addEventListener('click', closeModal);
 
   window.addEventListener('click', (e) => {
-    if (e.target === applyModal) {
-      applyModal.style.display = 'none';
-    }
+    if (e.target === applyModal) closeModal();
   });
 
   window.addEventListener('keydown', (e) => {
     if (e.key === "Escape" && applyModal.style.display === 'flex') {
-      applyModal.style.display = 'none';
+      closeModal();
     }
   });
+
+  /* ---------------------------
+     PAYPAL
+  ---------------------------- */
+  paypal.Buttons({
+    style: {
+      layout: 'vertical',
+      color: 'gold',
+      shape: 'rect',
+      label: 'paypal'
+    },
+
+    createOrder: function (data, actions) {
+      return actions.order.create({
+        purchase_units: [{
+          amount: { value: '50.00' }
+        }]
+      });
+    },
+
+    onApprove: function (data, actions) {
+      return actions.order.capture().then(function (details) {
+        alert(
+          'Payment completed by ' +
+          details.payer.name.given_name +
+          '. You can now proceed to apply.'
+        );
+
+        paymentSection.style.display = 'none';
+        applicationForm.style.display = 'block';
+      });
+    },
+
+    onError: function () {
+      alert('Payment failed. Please try again.');
+    }
+
+  }).render('#paypal-button-container');
+
+});
 </script>
 
 </body>
