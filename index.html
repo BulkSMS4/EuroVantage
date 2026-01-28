@@ -16,8 +16,8 @@
   "@type": "Organization",
   "name": "EuroVantage",
   "url": "https://www.eurovantage.com/",
-  "logo": "https://i.postimg.cc/sDTwDrJS/file-00000000b6d471f8b68cb9c69408ef3e.png",
-  "image": "https://www.eurovantage.com/images/eurovantage-hero.jpg",
+  "logo": "https://i.postimg.cc/2y9bgmsX/file-000000003a4071f589514f7a31460156-(1).png",
+  "image": "https://i.postimg.cc/2y9bgmsX/file-000000003a4071f589514f7a31460156-(1).png",
   "description": "EuroVantage connects skilled professionals with verified European work and travel opportunities.",
   "sameAs": [
     "https://www.facebook.com/eurovantage",
@@ -31,13 +31,13 @@
 <meta property="og:url" content="https://www.eurovantage.com/">
 <meta property="og:title" content="EuroVantage — Advance with Confidence. Arrive in Style.">
 <meta property="og:description" content="Your trusted pathway to verified European jobs and visa support. Start your international career today.">
-<meta property="og:image" content="https://i.postimg.cc/sDTwDrJS/file-00000000b6d471f8b68cb9c69408ef3e.png">
+<meta property="og:image" content="https://i.postimg.cc/2y9bgmsX/file-000000003a4071f589514f7a31460156-(1).png">
 
 <!-- ✅ Twitter -->
 <meta property="twitter:card" content="summary_large_image">
 <meta property="twitter:title" content="EuroVantage — Advance with Confidence. Arrive in Style.">
 <meta property="twitter:description" content="Find verified European jobs with EuroVantage — trusted visa and work support agency.">
-<meta property="twitter:image" content="https://www.eurovantage.com/images/eurovantage-hero.jpg">
+<meta property="twitter:image" content="https://i.postimg.cc/2y9bgmsX/file-000000003a4071f589514f7a31460156-(1).png">
 
 <link rel="icon" href="favicon.png">
 
@@ -139,14 +139,6 @@ nav a:hover { color: var(--gold); }
   object-fit: cover;
   border-radius: 12px;
   margin-bottom: 10px;
-}
-
-footer {
-  text-align: center;
-  padding: 25px;
-  border-top: 1px solid rgba(212,175,55,0.2);
-  font-size: 14px;
-  color: #aaa;
 }
 
 /* ===============================
@@ -513,6 +505,59 @@ header h1 {
     background-position: center top;
   }
 }
+
+.apply-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 14px 26px;
+  background: linear-gradient(135deg, #d4af37, #b8962e);
+  color: #000;
+  font-weight: 600;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.apply-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(212,175,55,0.35);
+}
+
+.apply-count {
+  margin-top: 14px;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  color: rgba(255, 255, 255, 0.85);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* subtle trust dot */
+.apply-count::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background: #d4af37;
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(212, 175, 55, 0.6);
+}
+
+.apply-count {
+  animation: fadeUp 0.6s ease forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 </style>
 </head>
 <body>
@@ -535,10 +580,14 @@ header h1 {
 </header>
 
 <section class="hero"></section>
+
 <section class="hero-text">
   <h2>Advance with Confidence.<br>Arrive in Style.</h2>
   <p>Your luxury pathway to verified European work and travel opportunities.</p>
-  <button>Apply for Your Job</butto  n>
+
+  <a href="#job-categories" class="apply-btn">
+    Apply for Your Job
+  </a>
 </section>
 
 <section class="team">
@@ -647,18 +696,18 @@ header h1 {
 
 <!-- Popup Agent List -->
 <div class="agent-list" id="agentList">
-  <a href="https://wa.me/233593231752" target="_blank">
-    <img src="https://i.postimg.cc/90yXHWNk/1000164571_removebg_preview.png">
+  <a href="mailto:anna.support@eurovantage.com" target="_blank">
+    <img src="https://i.postimg.cc/90yXHWNk/1000164571_removebg_preview.png" alt="Anna Support">
     <span>Anna Support</span>
   </a>
 
-  <a href="https://wa.me/233593231753" target="_blank">
-    <img src="https://i.postimg.cc/65WYv75p/1000164566_removebg_preview.png">
-    <span>Michael  Customer Care</span>
+  <a href="mailto:michael.care@eurovantage.com" target="_blank">
+    <img src="https://i.postimg.cc/65WYv75p/1000164566_removebg_preview.png" alt="Michael Customer Care">
+    <span>Michael Customer Care</span>
   </a>
 
-  <a href="https://wa.me/233593231754" target="_blank">
-    <img src="https://i.postimg.cc/PqRH8skK/1000164254-removebg-preview.png">
+  <a href="mailto:sophia.helpdesk@eurovantage.com" target="_blank">
+    <img src="https://i.postimg.cc/PqRH8skK/1000164254-removebg-preview.png" alt="Sophia Help Desk">
     <span>Sophia Help Desk</span>
   </a>
 </div>
@@ -777,7 +826,7 @@ let fakeCount = sessionStorage.getItem("fakeCount")
   ? parseInt(sessionStorage.getItem("fakeCount"))
   : Math.floor(420 + Math.random() * 300);
 
-const heroBtn = document.querySelector(".hero-text button");
+const heroBtn = document.querySelector(".hero-text .apply-btn");
 const counterEl = document.createElement("div");
 counterEl.style.marginTop = "14px";
 counterEl.style.fontSize = "18px";
@@ -795,8 +844,8 @@ setInterval(() => {
 /* ===============================
    TESTIMONIALS GRID
 ================================ */
-const peopleCount = 120;
-const showLimit = 6;
+const peopleCount = 500;
+const showLimit = 500;
 
 const countries = [
   "🇺🇸","🇬🇧","🇩🇪","🇫🇷","🇪🇸",
@@ -937,6 +986,14 @@ if ("Notification" in window && Notification.permission === "granted") {
     });
   }, 1000 * 60 * 60 * 6);
 }
+
+window.addEventListener('online', () => {
+  console.log('Back online — Firestore will sync now.');
+});
+
+window.addEventListener('offline', () => {
+  console.log('Offline — Firestore is in offline mode.');
+});
 </script>
 </body>
 </html>
