@@ -140,7 +140,19 @@
     text-decoration: none;
     text-align: center;
   }
+  
+  .payment-wrapper {
+  max-width: 420px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  text-align: center;
+}
 </style>
+
+<script src="https://www.paypal.com/sdk/js?client-id=sb&currency=EUR"></script>
 </head>
 
 <body>
@@ -219,11 +231,20 @@ As a driver under EuroVantage programs, your responsibilities may include transp
 Applications are open to international candidates who are physically fit, responsible, and willing to work in Europe. Both experienced drivers and motivated beginners are welcome. Training or license conversion support may be available depending on the country and employer.
 </p>
 
-<!-- EVERYTHING ABOVE REMAINS UNCHANGED -->
+<button class="apply-btn" id="applyBtn">
+  Apply for This Job
+</button>
 
-<button class="apply-btn" onclick="openForm()">Apply for This Job</button>
+<div class="payment-wrapper" id="paymentBox" style="display:none;">
+  <h3>💳 Application Payment</h3>
+  <p>
+    To proceed with this application, a <strong>€50 processing fee</strong> is required.
+  </p>
 
-<div class="form-wrapper" id="applyForm">
+  <div id="paypal-button-container"></div>
+</div>
+
+<div class="form-wrapper" id="applyForm">   
 
 <h3>📝 Driver Job Application</h3>
 <p>
@@ -262,12 +283,37 @@ Fill in the form below carefully. Applications with complete information are pro
 <a href="index.html" class="back-link">← Back to Jobs</a>
 
 <script>
-function openForm() {
-  document.getElementById("applyForm").style.display = "block";
-  window.scrollTo({ top: document.getElementById("applyForm").offsetTop, behavior: "smooth" });
-}
-function closeForm() {
-  document.getElementById("applyForm").style.display = "none";
+const applyBtn = document.getElementById("applyBtn");
+const paymentBox = document.getElementById("paymentBox");
+const applyForm = document.getElementById("applyForm");
+
+applyBtn.addEventListener("click", function () {
+  paymentBox.style.display = "block";
+  applyBtn.style.display = "none";
+});
+
+// Initialize PayPal buttons only if SDK is loaded
+if (typeof paypal !== "undefined") {
+    paypal.Buttons({
+        createOrder: (data, actions) => {
+            return actions.order.create({
+                purchase_units: [{ amount: { value: "50.00" } }]
+            });
+        },
+        onApprove: (data, actions) => {
+            return actions.order.capture().then(() => {
+                paymentBox.style.display = "none";
+                applyForm.style.display = "block";
+            });
+        },
+        onCancel: () => {
+            applyBtn.style.display = "block";
+            paymentBox.style.display = "none";
+        },
+        onError: () => {
+            alert("Payment failed. Please try again.");
+        }
+    }).render("#paypal-button-container");
 }
 </script>
 
