@@ -10,14 +10,14 @@
 <meta name="description" content="EuroVantage connects skilled professionals with verified European work and travel opportunities. Advance your career with confidence and arrive in style.">
 <meta name="keywords" content="EuroVantage, European jobs, work abroad, visa support, travel agency, Ghana jobs, recruitment Europe, job placement, overseas work">
 
-<!-- ✅ Structured Data -->
+<!-- ✅ Structured Data (FIXED & VALID) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "EuroVantage",
   "url": "https://www.eurovantage.com/",
-  "logo": "https://i.postimg.cc/xTkZ1DQk/file_000000003a4071f589514f7a31460156.png",
+  "logo": "https://i.postimg.cc/sDTwDrJS/file-00000000b6d471f8b68cb9c69408ef3e.png",
   "image": "https://i.postimg.cc/xTkZ1DQk/file_000000003a4071f589514f7a31460156.png",
   "description": "EuroVantage connects skilled professionals with verified European work and travel opportunities.",
   "sameAs": [
@@ -27,7 +27,7 @@
 }
 </script>
 
-<!-- ✅ Open Graph -->
+<!-- ✅ Open Graph (Facebook, WhatsApp, LinkedIn) -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.eurovantage.com/">
 <meta property="og:title" content="EuroVantage — Advance with Confidence. Arrive in Style.">
@@ -38,6 +38,7 @@
 <meta property="og:image:secure_url" content="https://i.postimg.cc/xTkZ1DQk/file_000000003a4071f589514f7a31460156.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="EuroVantage – Verified European Jobs and Visa Support">
 
 <!-- ✅ Twitter -->
 <meta name="twitter:card" content="summary_large_image">
@@ -46,8 +47,7 @@
 <meta name="twitter:image" content="https://i.postimg.cc/xTkZ1DQk/file_000000003a4071f589514f7a31460156.png">
 
 <link rel="icon" href="/images/favicon.png">
-
-<style>
+     <style>
 :root {
   --gold: #d4af37;
   --dark: #050505;
@@ -498,14 +498,8 @@ header h1 {
   background: #c7a130;
 }
 
-.apply-count {
-  margin-top: 16px;
-  font-size: 17px;
-  font-weight: 600;
-  color: #fff;
-}
 
-@media (max-width: 43px) {
+@media (max-width: 768px) {
   .hero {
     height: 50vh;
     background-position: center top;
@@ -567,8 +561,15 @@ header h1 {
 </style>
 </head>
 <body>
+    
+    <!-- ✅ Hidden SEO Image (for Google Images indexing) -->
+<img src="https://i.postimg.cc/2y9bgmsX/file-000000003a4071f589514f7a31460156-(1).png"
+     alt="EuroVantage European job opportunities"
+     loading="lazy"
+     style="display:none">
 
 <header>
+         
   <div class="logo-wrap">
   <img src="https://i.postimg.cc/sDTwDrJS/file-00000000b6d471f8b68cb9c69408ef3e.png" 
        alt="EuroVantage Logo" 
@@ -582,7 +583,6 @@ header h1 {
       <a href="#">About</a>
       <a href="#contact">Contact</a>
     </nav>
-  </div>
 </header>
 
 <section class="hero"></section>
@@ -724,38 +724,8 @@ header h1 {
   </div>
 </footer>
 
-<script type="module">
-  // ===============================
-  // FIREBASE VISITOR TRACKING & LIVE NOTIFICATIONS
-  // ===============================
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-  import { getFirestore, doc, setDoc, increment, onSnapshot } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyB5zWUvl64s6wAjjeXd0mCUyhMEdzg_MmM",
-    authDomain: "usahackersland.firebaseapp.com",
-    projectId: "usahackersland",
-    storageBucket: "usahackersland.appspot.com"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-
-  (async function() {
-  if (!sessionStorage.getItem("visited")) {
-    sessionStorage.setItem("visited", "yes");
-    await setDoc(doc(db, "stats", "visits"), { total: increment(1) }, { merge: true });
-  }
-
-  onSnapshot(doc(db, "stats", "notifications"), (docSnap) => {
-    const count = docSnap.exists() ? docSnap.data().total : 0;
-    const notifBadge = document.getElementById("notifCount");
-    if (notifBadge) notifBadge.textContent = count;
-  });
-  })();
-</script>  
-
 <script>
+    
 /* ===============================
    FOOTER YEAR
 ================================ */
@@ -826,32 +796,14 @@ function showSlides(n) {
 setInterval(() => plusSlides(1), 5000);
 
 /* ===============================
-   FAKE SOCIAL PROOF COUNTER
-================================ */
-let fakeCount = sessionStorage.getItem("fakeCount")
-  ? parseInt(sessionStorage.getItem("fakeCount"))
-  : Math.floor(420 + Math.random() * 300);
-
-const heroBtn = document.querySelector(".hero-text .apply-btn");
-const counterEl = document.createElement("div");
-counterEl.style.marginTop = "14px";
-counterEl.style.fontSize = "18px";
-counterEl.style.fontWeight = "600";
-counterEl.style.color = "#fff";
-counterEl.textContent = `${fakeCount}+ people who have already applied`;
-heroBtn.insertAdjacentElement("afterend", counterEl);
-
-setInterval(() => {
-  fakeCount++;
-  sessionStorage.setItem("fakeCount", fakeCount);
-  counterEl.textContent = `${fakeCount}+ people who have already applied`;
-}, 9000);
-
-/* ===============================
    TESTIMONIALS GRID
 ================================ */
 const peopleCount = 500;
-const showLimit = 500;
+let showLimit = 500;
+
+if (window.innerWidth < 768) {
+  showLimit = 500;
+}
 
 const countries = [
   "🇺🇸","🇬🇧","🇩🇪","🇫🇷","🇪🇸",
@@ -954,51 +906,60 @@ function toggleTestimonials() {
   </div>
 </div>
 <script>
-function showPushPrompt() {
-  const prompt = document.getElementById("pushPrompt");
-  if (!prompt) return;
 
-  if ("Notification" in window && Notification.permission !== "granted") {
-    prompt.style.display = "block";
-  }
+document.addEventListener("DOMContentLoaded", () => {
+  if (!("Notification" in window)) {
+  const prompt = document.getElementById("pushPrompt");
+  if (prompt) prompt.remove();
+  return;
 }
 
-function enableNotifications() {
-  Notification.requestPermission().then(permission => {
-    if (permission === "granted") {
-      new Notification("✅ Notifications Enabled!", {
-        body: "You'll now receive updates on new job openings.",
+  // Start sending job notifications every 6 hours
+  function startJobNotifications() {
+    setInterval(() => {
+      new Notification("💼 New European Jobs Available", {
+        body: "Check the latest verified job openings on EuroVantage.",
         icon: "https://www.eurovantage.com/images/eurovantage-hero.jpg"
       });
-    }
-    closePushPrompt();
-  });
-}
+    }, 1000 * 60 * 60 * 6); // every 6 hours
+  }
 
-function closePushPrompt() {
-  const prompt = document.getElementById("pushPrompt");
-  if (prompt) prompt.style.display = "none";
-}
-
-// Show after 10 minutes
-setTimeout(showPushPrompt, 600000);
-
-// Auto notifications if already allowed
-if ("Notification" in window && Notification.permission === "granted") {
-  setInterval(() => {
-    new Notification("💼 New European Jobs Available", {
-      body: "Check the latest verified job openings on EuroVantage.",
-      icon: "https://www.eurovantage.com/images/eurovantage-hero.jpg"
+  // Enable notifications
+  function enableNotifications() {
+    Notification.requestPermission().then(permission => {
+      if (permission === "granted") {
+        startJobNotifications();
+        new Notification("✅ Notifications Enabled!", {
+          body: "You'll now receive updates on new job openings.",
+          icon: "https://www.eurovantage.com/images/eurovantage-hero.jpg"
+        });
+      }
+      closePushPrompt();
     });
-  }, 1000 * 60 * 60 * 6);
-}
+  }
 
-window.addEventListener('online', () => {
-  console.log('Back online — Firestore will sync now.');
-});
+  // Close push prompt
+  function closePushPrompt() {
+    const prompt = document.getElementById("pushPrompt");
+    if (prompt) prompt.style.display = "none";
+  }
 
-window.addEventListener('offline', () => {
-  console.log('Offline — Firestore is in offline mode.');
+  // Show the push prompt after 3 seconds if not already granted
+  setTimeout(() => {
+    const prompt = document.getElementById("pushPrompt");
+    if (prompt && Notification.permission !== "granted") {
+      prompt.style.display = "block";
+    }
+  }, 3000);
+
+  // Auto-start if permission already granted
+  if (Notification.permission === "granted") {
+    startJobNotifications();
+  }
+
+  // Expose the enable function to buttons
+  window.enableNotifications = enableNotifications;
+  window.closePushPrompt = closePushPrompt;
 });
 </script>
 </body>
