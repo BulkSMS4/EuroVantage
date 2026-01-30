@@ -184,18 +184,90 @@ button:hover{
     grid-template-columns:1fr;
   }
 }
+
+/* PAYMENT GATE STYLES */
+#paymentGate {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.85);
+  z-index: 9999;
+  overflow-y: auto; /* Allow scroll if form is taller than screen */
+  padding: 40px 20px;
+}
+#paymentGate .gate-content {
+  margin: auto; /* Center horizontally */
+}
+
+#paymentGate .gate-content {
+  background: #0b0b0b;
+  border-radius: 18px;
+  padding: 35px;
+  max-width: 420px;
+  width: 90%;
+  border: 1px solid rgba(212,175,55,.3);
+  text-align: center;
+}
+
+#paymentGate h3 {
+  color: #d4af37;
+  margin-bottom: 10px;
+}
+
+#paymentGate p {
+  color: #ccc;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+#paymentGate strong {
+  font-size: 22px;
+  color: #9cffc4;
+}
+
+#paypal-button-container {
+  margin-top: 20px;
+}
 </style>
 
 <script>
+let selectedRole = "";
+
+// Show payment gate when a job is selected
 function showApplyForm(role){
-  document.getElementById("applyForm").style.display="block";
-  document.getElementById("jobPosition").value = role;
+  selectedRole = role;
+  document.getElementById("paymentGate").style.display = "flex";
+}
+
+// After successful PayPal payment, show application form
+function onPaymentSuccess(){
+  document.getElementById("paymentGate").style.display = "none";
+  document.getElementById("applyForm").style.display = "block";
+  document.getElementById("jobPosition").value = selectedRole;
   document.getElementById("applyForm").scrollIntoView({behavior:"smooth"});
 }
 </script>
 
+<!-- PAYPAL SDK (Use your client-id in live) -->
+<script src="https://www.paypal.com/sdk/js?client-id=sb&currency=EUR"></script>
+
 </head>
 <body>
+
+<!-- ================= PAYMENT GATE ================= -->
+<div id="paymentGate">
+  <div class="gate-content">
+    <h3>🔒 Application Fee Required</h3>
+    <p>
+      To proceed with your application, a <strong>€50 processing fee</strong> is required.
+      This ensures serious applicants and faster document processing.
+    </p>
+    <div style="margin:25px 0;">
+      <strong>€50 Application Fee</strong>
+    </div>
+    <div id="paypal-button-container"></div>
+  </div>
+</div>
 
 <div class="container">
 
@@ -346,5 +418,37 @@ within Europe’s thriving hospitality and food service industry.
 <a href="index.html" class="back-link">← Back to Jobs</a>
 
 </div>
+
+<script>
+// Render PayPal Button
+paypal.Buttons({
+  style: {
+    layout: 'vertical',
+    color:  'gold',
+    shape:  'rect',
+    label:  'paypal'
+  },
+  createOrder: function(data, actions) {
+    return actions.order.create({
+      purchase_units: [{
+        amount: {
+          value: '50.00'
+        }
+      }]
+    });
+  },
+  onApprove: function(data, actions) {
+    return actions.order.capture().then(function(details) {
+      alert('Payment completed by ' + details.payer.name.given_name + '!');
+      onPaymentSuccess();
+    });
+  },
+  onError: function(err) {
+    alert('Payment could not be completed. Please try again.');
+    console.error(err);
+  }
+}).render('#paypal-button-container');
+</script>
+
 </body>
 </html>
