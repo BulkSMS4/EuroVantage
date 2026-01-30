@@ -153,9 +153,12 @@ button:hover {
   inset: 0;
   background: rgba(0,0,0,.85);
   z-index: 9999;
-  align-items: center;
-  justify-content: center;
+  overflow-y: auto; /* Allow scroll if form is taller than screen */
+  padding: 40px 20px;
 }
+#paymentGate .gate-content {
+  margin: auto; /* Center horizontally */
+  }
 
 #paymentGate .gate-content {
   background: #0b0b0b;
