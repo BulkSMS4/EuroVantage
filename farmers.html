@@ -178,10 +178,71 @@ a.back {
   border-radius: 8px;
   cursor: pointer;
 }
-</style>
-</head>
+/* PAYMENT GATE STYLES */
+#paymentGate {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.85);
+  z-index: 9999;
+  overflow-y: auto; /* Allow scroll if form is taller than screen */
+  padding: 40px 20px;
+}
+#paymentGate .gate-content {
+  margin: auto; /* Center horizontally */
+}
 
+#paymentGate .gate-content {
+  background: #0b0b0b;
+  border-radius: 18px;
+  padding: 35px;
+  max-width: 420px;
+  width: 90%;
+  border: 1px solid rgba(212,175,55,.3);
+  text-align: center;
+}
+
+#paymentGate h3 {
+  color: #d4af37;
+  margin-bottom: 10px;
+}
+
+#paymentGate p {
+  color: #ccc;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+#paymentGate strong {
+  font-size: 22px;
+  color: #9cffc4;
+}
+
+#paypal-button-container {
+  margin-top: 20px;
+}
+</style>
+
+<!-- PAYPAL SDK (Use your client-id in live) -->
+<script src="https://www.paypal.com/sdk/js?client-id=sb&currency=EUR"></script>
+
+</head>
 <body>
+
+<!-- ================= PAYMENT GATE ================= -->
+<div id="paymentGate">
+  <div class="gate-content">
+    <h3>🔒 Application Fee Required</h3>
+    <p>
+      To proceed with your application, a <strong>€50 processing fee</strong> is required.
+      This ensures serious applicants and faster document processing.
+    </p>
+    <div style="margin:25px 0;">
+      <strong>€50 Application Fee</strong>
+    </div>
+    <div id="paypal-button-container"></div>
+  </div>
+</div>
 
 <h2>🌾 Farm Workers & Fruit Pickers Europe</h2>
 
@@ -259,47 +320,79 @@ EuroVantage collaborates with certified farms across countries such as Spain, It
 </ul>
 </section>
 
-<button id="applyBtn">Apply</button>
+<section id="applyForm" class="box" style="display:none;">
+  <h3>Apply for Farm Work</h3>
+
+  <form action="https://formsubmit.co/eurovantage37@gmail.com" method="POST" enctype="multipart/form-data">
+  <input type="hidden" name="Job Role" value="Farm Worker / Fruit Picker">
+  <input type="hidden" name="Payment Status" value="PAID €50">
+  <input type="hidden" name="_subject" value="New Farm Worker Application">
+  <input type="hidden" name="_captcha" value="false">
+
+  <label>Full Name</label>
+  <input type="text" name="Full Name" required>
+
+  <label>Phone Number</label>
+  <input type="tel" name="Phone" required>
+
+  <label>Email Address</label>
+  <input type="email" name="Email" required>
+
+  <label>Upload CV</label>
+  <input type="file" name="CV" accept=".pdf,.doc,.docx" required>
+
+  <button type="submit">Submit Application</button>
+</form>
+</section>
+
+<button id="applyBtn" onclick="openPayment()">Apply</button>
 
 <a class="back" href="index.html">← Back to Jobs</a>
 
-<!-- APPLY MODAL -->
-<div id="applyModal" class="modal">
-  <div class="modal-content">
-    <span class="close-btn" id="closeModal">&times;</span>
-    <h3>Apply for Farm Work</h3>
-
-    <form action="https://formsubmit.co/eurovantage@gmail.com" method="POST" enctype="multipart/form-data">
-      <input type="hidden" name="Job Role" value="Farm Worker / Fruit Picker">
-
-      <label>Full Name</label>
-      <input type="text" name="Full Name" placeholder="Enter your full name" required>
-
-      <label>Phone Number</label>
-      <input type="tel" name="Phone" placeholder="Your active phone number" required>
-
-      <label>Email Address</label>
-      <input type="email" name="Email" placeholder="Your email address" required>
-
-      <label>Upload CV</label>
-      <input type="file" name="CV" accept=".pdf,.doc,.docx" required>
-
-      <input type="hidden" name="_subject" value="New Farm Worker Application">
-      <input type="hidden" name="_captcha" value="false">
-
-      <button type="submit">Submit Application</button>
-    </form>
-  </div>
-</div>
-
 <script>
-const applyBtn = document.getElementById("applyBtn");
-const modal = document.getElementById("applyModal");
-const closeModal = document.getElementById("closeModal");
+function openPayment() {
+  document.getElementById("paymentGate").style.display = "flex";
+}
 
-applyBtn.onclick = () => modal.style.display = "flex";
-closeModal.onclick = () => modal.style.display = "none";
-window.onclick = e => { if (e.target === modal) modal.style.display = "none"; };
+paypal.Buttons({
+  createOrder: function (data, actions) {
+    return actions.order.create({
+      purchase_units: [{
+        description: "EuroVantage Job Application Fee",
+        amount: {
+          currency_code: "EUR",
+          value: "50.00"
+        }
+      }]
+    });
+  },
+
+  onApprove: function(data, actions) {
+    return actions.order.capture().then(function (details) {
+      return fetch('/verify.php', {  // your PHP verification script path
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ orderID: data.orderID }) // matches PHP
+      })
+      .then(res => res.json())
+      .then(response => {
+        if (response.status === 'success') {  // matches PHP success response
+          document.getElementById("paymentGate").style.display = "none";
+          document.getElementById("applyForm").style.display = "block";
+          document.getElementById("applyForm").scrollIntoView({ behavior: "smooth" });
+        } else {
+          alert("Payment could not be verified. Please contact support.");
+        }
+      })
+      .catch(() => alert("Verification failed. Please try again later."));
+    });
+  },
+
+  onError: function(err) {
+    alert("Payment failed. Please try again.");
+    console.error(err);
+  }
+}).render("#paypal-button-container");
 </script>
 
 </body>
