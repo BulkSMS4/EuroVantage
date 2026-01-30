@@ -559,6 +559,26 @@ header h1 {
     transform: translateY(0);
   }
 }
+
+/* ===============================
+   OG IMAGE DISPLAY
+================================ */
+
+.og-image-preview {
+  width: 100%;                  /* full width container */
+  max-width: 1200px;            /* same as OG image size */
+  margin: 40px auto;            /* centered on page */
+  border-radius: 16px;          /* nice rounded corners */
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4); /* soft shadow */
+}
+
+.og-image-preview img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;            /* keep proportions and cover area */
+}
 </style>
 </head>
 <body>
@@ -589,6 +609,11 @@ header h1 {
   <a href="#job-categories" class="apply-btn">
     Apply for Your Job
   </a>
+</section>
+
+<!-- OG Image Preview -->
+<section class="og-image-preview">
+  <img src="https://eurovantage.work.gd/image/og-image.jpg" alt="EuroVantage OG Image">
 </section>
 
 <section class="team">
