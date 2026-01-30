@@ -6,53 +6,237 @@
 <title>Factory Workers — EuroVantage Jobs</title>
 
 <style>
-/* (STYLES UNCHANGED — SAME AS YOUR CODE) */
 :root {
   --gold: #d4af37;
   --dark: #050505;
   --dark-soft: #0b0b0b;
   --text-light: #f2f2f2;
 }
-body{margin:0;font-family:"Poppins",sans-serif;background:var(--dark);color:var(--text-light);}
-.container{max-width:1100px;margin:auto;padding:50px 20px;}
-h2,h3{color:var(--gold);text-align:center;}
-.intro{text-align:center;max-width:850px;margin:0 auto 50px;font-size:17px;line-height:1.6;color:#ddd;}
-.section-title{margin:60px 0 30px;font-size:30px;}
-.job-card{background:var(--dark-soft);border-radius:18px;box-shadow:0 8px 25px rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.15);margin-bottom:35px;padding:25px;display:grid;grid-template-columns:1fr 1.3fr;gap:25px;transition:.3s;}
-.job-card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(212,175,55,0.18);}
-.job-card img{width:100%;height:260px;object-fit:cover;border-radius:14px;}
-.salary{font-weight:600;margin:10px 0;color:#9cffc4;}
-.job-card p{color:#ddd;line-height:1.6;}
-.job-card ul{padding-left:18px;}
-.apply-btn{display:inline-block;margin-top:16px;padding:12px 26px;background:var(--gold);color:#000;font-weight:600;border-radius:8px;cursor:pointer;}
-.apply-btn:hover{background:#c7a130;}
-#applyForm{display:none;background:var(--dark-soft);border-radius:18px;padding:35px;margin-top:60px;border:1px solid rgba(212,175,55,.2);}
-input,select,textarea{padding:13px;border-radius:8px;border:1px solid #333;background:#000;color:#fff;}
-button{padding:14px;background:var(--gold);border:none;border-radius:8px;font-weight:600;cursor:pointer;}
-.back-link{display:inline-block;margin-top:50px;color:#aaa;text-decoration:none;}
-@media(max-width:800px){.job-card{grid-template-columns:1fr;}}
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: var(--dark);
+  color: var(--text-light);
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 50px 20px;
+}
+
+h2, h3 {
+  color: var(--gold);
+  text-align: center;
+}
+
+.intro {
+  text-align: center;
+  max-width: 850px;
+  margin: 0 auto 50px;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #ddd;
+}
+
+.section-title {
+  margin: 60px 0 30px;
+  font-size: 30px;
+}
+
+.job-card {
+  background: var(--dark-soft);
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(212,175,55,0.08);
+  border: 1px solid rgba(212,175,55,0.15);
+  margin-bottom: 35px;
+  padding: 25px;
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 25px;
+  transition: .3s;
+}
+
+.job-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(212,175,55,0.18);
+}
+
+.job-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.salary {
+  font-weight: 600;
+  margin: 10px 0;
+  color: #9cffc4;
+}
+
+.job-card p {
+  color: #ddd;
+  line-height: 1.6;
+}
+
+.job-card ul {
+  padding-left: 18px;
+}
+
+.apply-btn {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 12px 26px;
+  background: var(--gold);
+  color: #000;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.apply-btn:hover {
+  background: #c7a130;
+}
+
+#applyForm {
+  display: none;
+  background: var(--dark-soft);
+  border-radius: 18px;
+  padding: 35px;
+  margin-top: 60px;
+  border: 1px solid rgba(212,175,55,.2);
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 13px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background: #000;
+  color: #fff;
+  margin-bottom: 15px;
+  font-size: 15px;
+}
+
+button {
+  padding: 14px;
+  background: var(--gold);
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #c7a130;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 50px;
+  color: #aaa;
+  text-decoration: none;
+}
+
+@media(max-width:800px) {
+  .job-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* PAYMENT GATE STYLES */
+#paymentGate {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.85);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+}
+
+#paymentGate .gate-content {
+  background: #0b0b0b;
+  border-radius: 18px;
+  padding: 35px;
+  max-width: 420px;
+  width: 90%;
+  border: 1px solid rgba(212,175,55,.3);
+  text-align: center;
+}
+
+#paymentGate h3 {
+  color: #d4af37;
+  margin-bottom: 10px;
+}
+
+#paymentGate p {
+  color: #ccc;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+#paymentGate strong {
+  font-size: 22px;
+  color: #9cffc4;
+}
+
+#paypal-button-container {
+  margin-top: 20px;
+}
 </style>
 
 <script>
+let selectedRole = "";
+
+// Show payment gate when a job is selected
 function showApplyForm(role){
-  document.getElementById("applyForm").style.display="block";
-  document.getElementById("jobPosition").value = role;
+  selectedRole = role;
+  document.getElementById("paymentGate").style.display = "flex";
+}
+
+// After successful PayPal payment, show application form
+function onPaymentSuccess(){
+  document.getElementById("paymentGate").style.display = "none";
+  document.getElementById("applyForm").style.display = "block";
+  document.getElementById("jobPosition").value = selectedRole;
   document.getElementById("applyForm").scrollIntoView({behavior:"smooth"});
 }
 </script>
-</head>
 
+<!-- PAYPAL SDK (Use your client-id in live) -->
+<script src="https://www.paypal.com/sdk/js?client-id=sb&currency=EUR"></script>
+
+</head>
 <body>
+
+<!-- ================= PAYMENT GATE ================= -->
+<div id="paymentGate">
+  <div class="gate-content">
+    <h3>🔒 Application Fee Required</h3>
+    <p>
+      To proceed with your application, a <strong>€50 processing fee</strong> is required.
+      This ensures serious applicants and faster document processing.
+    </p>
+    <div style="margin:25px 0;">
+      <strong>€50 Application Fee</strong>
+    </div>
+    <div id="paypal-button-container"></div>
+  </div>
+</div>
+
 <div class="container">
 
 <h2>🏭 Factory Worker Jobs in Europe</h2>
 <p class="intro">
-EuroVantage connects applicants to **verified European factories** offering
-<strong>legal employment, steady income, and long-term stability</strong>.
+EuroVantage connects applicants to <strong>verified European factories</strong> offering
+legal employment, steady income, and long-term stability.
 Whether you are starting fresh or already skilled, we have opportunities for you.
 </p>
 
-<!-- ================= NON-SKILLED JOBS ================= -->
+<!-- NON-SKILLED JOBS -->
 <h3 class="section-title">🔹 Non-Skilled Factory Jobs (No Experience Required)</h3>
 
 <div class="job-card">
@@ -61,7 +245,7 @@ Whether you are starting fresh or already skilled, we have opportunities for you
 <h3>Assembly Line Worker</h3>
 <div class="salary">💶 €1,300 – €1,800 / month</div>
 <p>
-Ideal for first-time workers. You will assist in assembling, packing,
+Ideal for first-time workers. Assist in assembling, packing,
 and inspecting products in modern, automated factories.
 </p>
 <ul>
@@ -93,7 +277,7 @@ and moving finished goods inside warehouse facilities.
 </div>
 </div>
 
-<!-- ================= SKILLED JOBS ================= -->
+<!-- SKILLED JOBS -->
 <h3 class="section-title">🔹 Skilled Factory Jobs (Experience Advantage)</h3>
 
 <div class="job-card">
@@ -102,8 +286,7 @@ and moving finished goods inside warehouse facilities.
 <h3>Machine Operator</h3>
 <div class="salary">💶 €1,600 – €2,300 / month</div>
 <p>
-Operate and monitor industrial machinery used in food processing,
-packaging, or manufacturing plants while ensuring safety standards.
+Operate and monitor industrial machinery while ensuring safety standards.
 </p>
 <ul>
 <li>Basic machine or technical knowledge</li>
@@ -121,8 +304,7 @@ packaging, or manufacturing plants while ensuring safety standards.
 <h3>Quality Control Inspector</h3>
 <div class="salary">💶 €1,700 – €2,500 / month</div>
 <p>
-Inspect finished products, identify defects,
-and ensure quality standards are met before shipment.
+Inspect finished products, identify defects, and ensure quality standards.
 </p>
 <ul>
 <li>Attention to detail required</li>
@@ -134,7 +316,7 @@ and ensure quality standards are met before shipment.
 </div>
 </div>
 
-<!-- ================= APPLY FORM ================= -->
+<!-- APPLY FORM -->
 <div id="applyForm">
 <h3>Apply for This Job</h3>
 <p>Submit your details and our recruitment team will contact you.</p>
@@ -144,43 +326,15 @@ and ensure quality standards are met before shipment.
   method="POST"
   enctype="multipart/form-data"
 >
-
-  <!-- 🔒 FormSubmit settings -->
   <input type="hidden" name="_captcha" value="false">
   <input type="hidden" name="_template" value="table">
   <input type="hidden" name="_subject" value="New Job Application — EuroVantage">
   <input type="hidden" name="_next" value="thank-you.html">
 
-  <!-- Applicant Details -->
-  <input
-    type="text"
-    name="Full Name"
-    placeholder="Full Name"
-    required
-  >
-
-  <input
-    type="email"
-    name="Email Address"
-    placeholder="Email Address"
-    required
-  >
-
-  <input
-    type="tel"
-    name="Phone Number"
-    placeholder="Phone Number"
-    required
-  >
-
-  <input
-    type="text"
-    id="jobPosition"
-    name="Job Position"
-    placeholder="Job Position"
-    readonly
-  >
-
+  <input type="text" name="Full Name" placeholder="Full Name" required>
+  <input type="email" name="Email Address" placeholder="Email Address" required>
+  <input type="tel" name="Phone Number" placeholder="Phone Number" required>
+  <input type="text" id="jobPosition" name="Job Position" placeholder="Job Position" readonly>
   <select name="Experience Level" required>
     <option value="">Years of Experience</option>
     <option>None</option>
@@ -188,21 +342,8 @@ and ensure quality standards are met before shipment.
     <option>3–5 Years</option>
     <option>5+ Years</option>
   </select>
-
-  <!-- 📎 CV Upload -->
-  <input
-    type="file"
-    name="Curriculum Vitae (CV)"
-    accept=".pdf,.doc,.docx"
-    required
-  >
-
-  <textarea
-    name="Additional Information"
-    rows="4"
-    placeholder="Additional information (optional)">
-  </textarea>
-
+  <input type="file" name="Curriculum Vitae (CV)" accept=".pdf,.doc,.docx" required>
+  <textarea name="Additional Information" rows="4" placeholder="Additional information (optional)"></textarea>
   <button type="submit">Submit Application</button>
 </form>
 </div>
@@ -210,5 +351,37 @@ and ensure quality standards are met before shipment.
 <a href="index.html" class="back-link">← Back to Jobs</a>
 
 </div>
+
+<script>
+// Render PayPal Button
+paypal.Buttons({
+  style: {
+    layout: 'vertical',
+    color:  'gold',
+    shape:  'rect',
+    label:  'paypal'
+  },
+  createOrder: function(data, actions) {
+    return actions.order.create({
+      purchase_units: [{
+        amount: {
+          value: '50.00'
+        }
+      }]
+    });
+  },
+  onApprove: function(data, actions) {
+    return actions.order.capture().then(function(details) {
+      alert('Payment completed by ' + details.payer.name.given_name + '!');
+      onPaymentSuccess();
+    });
+  },
+  onError: function(err) {
+    alert('Payment could not be completed. Please try again.');
+    console.error(err);
+  }
+}).render('#paypal-button-container');
+</script>
+
 </body>
 </html>
