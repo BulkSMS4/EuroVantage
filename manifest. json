@@ -1,19 +1,20 @@
 {
   "name": "EuroVantage",
   "short_name": "EuroVantage",
-  "start_url": "/",
+  "description": "Advance with Confidence. Arrive in Style. Verified European jobs and visa support.",
+  "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#050505",
-  "theme_color": "#050505",
-  "orientation": "portrait",
+  "theme_color": "#d4af37",
+  "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "icon-192.png",
+      "src": "https://i.postimg.cc/sDTwDrJS/file-00000000b6d471f8b68cb9c69408ef3e.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "icon-512.png",
+      "src": "https://i.postimg.cc/sDTwDrJS/file-00000000b6d471f8b68cb9c69408ef3e.png",
       "sizes": "512x512",
       "type": "image/png"
     }
