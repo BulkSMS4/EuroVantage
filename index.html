@@ -5,48 +5,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>EuroVantage — Advance with Confidence. Arrive in Style.</title>
 
-<!-- ✅ SEO Meta -->
-<meta name="title" content="EuroVantage — Advance with Confidence. Arrive in Style.">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#050505">
+
+<!-- SEO -->
 <meta name="description" content="EuroVantage connects skilled professionals with verified European work and travel opportunities. Advance your career with confidence and arrive in style.">
-<meta name="keywords" content="EuroVantage, European jobs, work abroad, visa support, travel agency, Ghana jobs, recruitment Europe, job placement, overseas work">
+<meta name="keywords" content="EuroVantage, European jobs, work abroad, visa support, recruitment Europe">
 
-<!-- ✅ Structured Data (Organization) -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "EuroVantage",
-  "url": "https://eurovantage.work.gd/",
-  "logo": "https://eurovantage.work.gd/image/og-image.jpg",
-  "image": "https://eurovantage.work.gd/image/og-image.jpg",
-  "description": "EuroVantage connects skilled professionals with verified European work and travel opportunities.",
-  "sameAs": [
-    "https://www.facebook.com/eurovantage",
-    "https://www.instagram.com/eurovantage"
-  ]
-}
-</script>
-
-<!-- ✅ Open Graph (WhatsApp / Facebook / LinkedIn) -->
+<!-- Open Graph (WhatsApp, Facebook, LinkedIn) -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://eurovantage.work.gd/">
 <meta property="og:title" content="EuroVantage — Advance with Confidence. Arrive in Style.">
-<meta property="og:description" content="Your trusted pathway to verified European jobs and visa support. Start your international career today with EuroVantage.">
-<meta property="og:site_name" content="EuroVantage">
-<meta property="og:locale" content="en_US">
-
-<meta property="og:image" content="https://i.postimg.cc/15CBxc5J/1000186382.png">
-<meta property="og:image:secure_url" content="https://i.postimg.cc/15CBxc5J/1000186382.png">
+<meta property="og:description" content="Your trusted pathway to verified European jobs and visa support.">
+<meta property="og:image" content="https://eurovantage.work.gd/media/og-main.jpg">
+<meta property="og:image:secure_url" content="https://eurovantage.work.gd/media/og-main.jpg">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="EuroVantage – Verified European Jobs and Visa Support">
 
-<!-- ✅ Twitter / X -->
+<!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="EuroVantage — Advance with Confidence. Arrive in Style.">
-<meta name="twitter:description" content="Your trusted pathway to verified European jobs and visa support. Start your international career today with EuroVantage.">
-<meta name="twitter:image" content="https://eurovantage.work.gd/image/og-image.jpg">
+<meta name="twitter:description" content="Verified European jobs and visa support.">
+<meta name="twitter:image" content="https://eurovantage.work.gd/media/og-main.jpg">
 
      <style>
 :root {
@@ -559,26 +540,6 @@ header h1 {
     transform: translateY(0);
   }
 }
-
-/* ===============================
-   OG IMAGE DISPLAY
-================================ */
-
-.og-image-preview {
-  width: 100%;                  /* full width container */
-  max-width: 1200px;            /* same as OG image size */
-  margin: 40px auto;            /* centered on page */
-  border-radius: 16px;          /* nice rounded corners */
-  overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.4); /* soft shadow */
-}
-
-.og-image-preview img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;            /* keep proportions and cover area */
-}
 </style>
 </head>
 <body>
@@ -609,11 +570,20 @@ header h1 {
   <a href="#job-categories" class="apply-btn">
     Apply for Your Job
   </a>
-</section>
-
-<!-- OG Image Preview -->
-<section class="og-image-preview">
-  <img src="https://eurovantage.work.gd/image/og-image.jpg" alt="EuroVantage OG Image">
+  
+  <button id="installApp" style="
+  display:none;
+  margin-top:16px;
+  padding:12px 28px;
+  border:none;
+  border-radius:8px;
+  background:#111;
+  color:#fff;
+  font-weight:600;
+  cursor:pointer;
+">
+📲 Install EuroVantage App
+</button>
 </section>
 
 <section class="team">
@@ -939,7 +909,6 @@ document.addEventListener("DOMContentLoaded", () => {
     setInterval(() => {
       new Notification("💼 New European Jobs Available", {
         body: "Check the latest verified job openings on EuroVantage.",
-        icon: "https://eurovantage.work.gd/image/og-image.jpg"
       });
     }, 1000 * 60 * 60 * 6); // every 6 hours
   }
@@ -951,7 +920,6 @@ document.addEventListener("DOMContentLoaded", () => {
         startJobNotifications();
         new Notification("✅ Notifications Enabled!", {
           body: "You'll now receive updates on new job openings.",
-          icon: "https://eurovantage.work.gd/image/og-image.jpg"
         });
       }
       closePushPrompt();
@@ -981,6 +949,27 @@ document.addEventListener("DOMContentLoaded", () => {
   window.enableNotifications = enableNotifications;
   window.closePushPrompt = closePushPrompt;
 });
+</script>
+
+<script>
+let deferredPrompt;
+const installBtn = document.getElementById("installApp");
+
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  if (installBtn) installBtn.style.display = "inline-block";
+});
+
+if (installBtn) {
+  installBtn.addEventListener("click", async () => {
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    await deferredPrompt.userChoice;
+    deferredPrompt = null;
+    installBtn.style.display = "none";
+  });
+}
 </script>
 </body>
 </html>
